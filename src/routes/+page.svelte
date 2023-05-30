@@ -1,4 +1,6 @@
 <script lang="ts">
+	import ProjectShowcase from '../lib/ProjectShowcase.svelte';
+
 	const NAV_ITEMS = ['HOW WE WORK', 'ABOUT US', 'SHOWCASE', 'CONTACT'];
 
 	// Descriptions for the "How We Work" section
@@ -49,14 +51,16 @@
 	// Projects for the "Showcase" section
 	const SHOWCASE = [
 		{
-			project: 'Cinewave',
+			project: 'Cookmate',
 			client: 'Apex Design',
 			clientURL: '/',
-			scope: 'Desktop Application',
+			scope: 'Mobile App',
 			description:
-				'We built a powerful AI driven application to help videographers turn their old footage into passive income.',
-			stack: 'Electron, SvelteKit, Pytorch, Golang, AWS, PostgreSQL',
-			image: './images/product.webp'
+				'We designed an app to help users find and share video recipes based on the ingredients they have in their kitchen.',
+			stack: 'Flutter, Dart, Django, Adobe XD',
+			image: './showcase/cookmate-desktop-sample.jpeg',
+			imageMobile: './showcase/cookmate-mobile-sample.jpeg',
+			mobileAspect: 'aspect-[9/16]'
 		},
 		{
 			project: 'Zylabs Xplorer',
@@ -66,17 +70,19 @@
 			description:
 				"We built a web platform and API to help professors analyze student's performance on ZyLabs.",
 			stack: 'Django, AWS, PostgreSQL, Typescript, TailwindCSS',
-			image: './images/tablet.webp'
+			image: './showcase/zybooks-desktop-sample.jpeg',
+			imageMobile: './showcase/zybooks-tablet-sample.jpeg',
+			mobileAspect: 'aspect-[5/4]'
 		},
 		{
-			project: 'Vision',
+			project: 'Cinewave',
 			client: 'Apex Design',
 			clientURL: '/',
-			scope: 'Crossplatform',
+			scope: 'Desktop Application',
 			description:
-				'We built a real-time productivity app to help users stay focused on their goals and tasks on all of their devices.',
-			stack: 'Flutter, Dart, Django, AWS, PostgreSQL',
-			image: './images/product.webp'
+				'We built a powerful AI driven application to help videographers turn their old footage into passive income.',
+			stack: 'Electron, SvelteKit, Pytorch, Golang, AWS, PostgreSQL',
+			image: './showcase/cinewave-desktop-sample.jpeg'
 		},
 		{
 			project: 'Emaglet',
@@ -86,7 +92,21 @@
 			description:
 				'We built a web platform that allows users to easily create, share, and monetize newsletters using Google Docs.',
 			stack: 'Flutter, Dart, Django, AWS, PostgreSQL',
-			image: './images/tablet.webp'
+			image: './showcase/emaglet-desktop-sample.jpeg',
+			imageMobile: './showcase/emaglet-mobile-sample.jpeg',
+			mobileAspect: 'aspect-[9/16]'
+		},
+		{
+			project: 'Vision',
+			client: 'Apex Design',
+			clientURL: '/',
+			scope: 'Crossplatform',
+			description:
+				'We built a real-time productivity app to help users stay focused on their goals and tasks on all of their devices.',
+			stack: 'Flutter, Dart, Django, AWS, PostgreSQL',
+			image: './showcase/vision-desktop-sample.jpeg',
+			imageMobile: './showcase/vision-mobile-sample.jpeg',
+			mobileAspect: 'aspect-[9/16]'
 		},
 		{
 			project: 'Wealthawk',
@@ -95,8 +115,10 @@
 			scope: 'UI/UX Design',
 			description:
 				"We designed a sleek, modern, and sophisticated user experience for Wealthawk's web and mobile apps.",
-			stack: 'Angular, Golang, MongoDB',
-			image: './images/tablet.webp'
+			stack: 'Adobe XD',
+			image: './showcase/wealthawk-desktop-sample.jpeg',
+			imageMobile: './showcase/wealthawk-mobile-sample.jpeg',
+			mobileAspect: 'aspect-[9/16]'
 		},
 		{
 			project: 'Anacove',
@@ -106,11 +128,46 @@
 			description:
 				'We helped Anacove maintain and build upon their existing codebase to help them scale their business.',
 			stack: 'Angular, Golang, MongoDB',
-			image: './images/product.webp'
+			image: './showcase/anacove-desktop-sample.jpeg',
+			imageMobile: './showcase/anacove-tablet-sample.jpeg',
+			mobileAspect: 'aspect-[5/4]'
 		}
 	];
 
-	let showcaseIndex = 1;
+	let showcaseIndex = 0;
+	let prevShowcaseIndex = 0;
+
+	const setShowcaseIndex = (index: number) => {
+		prevShowcaseIndex = showcaseIndex;
+		showcaseIndex = index;
+	};
+
+	// Handle form submission
+	let firstName = '';
+	let lastName = '';
+	let email = '';
+	let message = '';
+
+	async function handleSubmit() {
+		const response = await fetch('/api/send-email', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				firstName,
+				lastName,
+				email,
+				message
+			})
+		});
+
+		if (response.ok) {
+			alert("Email sent successfully, we'll get back to you as soon as possible!");
+		} else {
+			alert('Failed to send email');
+		}
+	}
 </script>
 
 <section id="home" class="flex flex-row mt-16 w-[80rem] mx-auto h-[56rem]">
@@ -251,54 +308,17 @@
 		<div class="flex flex-row mt-20">
 			{#each SHOWCASE as _, index}
 				<button
-					on:click={() => (showcaseIndex = index)}
+					on:click={() => setShowcaseIndex(index)}
 					class:bg-opacity-20={showcaseIndex !== index}
 					class:hover:bg-opacity-40={showcaseIndex !== index}
 					class="h-2 w-2 mx-2 rounded-full bg-apex-midnight"
 				/>
 			{/each}
 		</div>
-		<div class="flex flex-row mt-20 mb-40 items-center">
-			<div class="flex flex-col w-2/3 ml-32">
-				<h4 class="text-apex-midnight text-opacity-25 font-bold tracking-widest mb-3">PROJECT</h4>
-				<p class="text-2xl tracking-widest font-bold">
-					{SHOWCASE[showcaseIndex].project.toUpperCase()}
-				</p>
-				<h4 class="text-apex-midnight text-opacity-25 font-bold tracking-widest mt-12 mb-3">
-					CLIENT
-				</h4>
-				<a
-					href={SHOWCASE[showcaseIndex].clientURL}
-					target="_blank"
-					class="text-2xl tracking-widest font-bold hover:text-orange-400 ease-out duration-100"
-				>
-					{SHOWCASE[showcaseIndex].client.toUpperCase()}
-				</a>
-
-				<h4 class="text-apex-midnight text-opacity-25 font-bold tracking-widest mt-12 mb-3">
-					SCOPE
-				</h4>
-				<p class="text-2xl tracking-widest font-bold">
-					{SHOWCASE[showcaseIndex].scope.toUpperCase()}
-				</p>
-
-				<h4 class="text-apex-midnight text-opacity-25 font-bold tracking-widest mt-12 mb-3">
-					BREAKDOWN
-				</h4>
-				<p class="text-xl font-semibold">
-					{SHOWCASE[showcaseIndex].description}
-				</p>
-				<p class="text-[15px] mt-20 text-apex-midnight text-opacity-40">
-					{SHOWCASE[showcaseIndex].stack}
-				</p>
-			</div>
-			<div class="ml-32 flex flex-col w-full relative">
-				<img
-					src={SHOWCASE[showcaseIndex].image}
-					alt={SHOWCASE[showcaseIndex].project}
-					class="object-cover w-full aspect-square"
-				/>
-			</div>
+		<div class="relative h-[56rem] w-full">
+			{#each SHOWCASE as project, index}
+				<ProjectShowcase {project} {showcaseIndex} {prevShowcaseIndex} {index} />
+			{/each}
 		</div>
 	</section>
 </div>
@@ -321,6 +341,77 @@
 				contact@apexdesign.io.
 			</a>
 		</p>
+		<h3 class="font-bold text-3xl tracking-[0.1em] leading-[1.3] text-center my-10">OR</h3>
+		<p
+			class="text-xl leading-relaxed tracking-wide text-apex-moon text-opacity-80 text-center w-1/2 mx-auto"
+		>
+			Fill out the form below and we'll get back to you as soon as possible.
+		</p>
+		<form class="mt-8 space-y-6 w-2/3 mx-auto" on:submit|preventDefault={handleSubmit}>
+			<div class="grid grid-cols-2 gap-4">
+				<div>
+					<p class="text-[12px] mb-1 text-apex-moon text-opacity-25">Name</p>
+					<label for="first-name" class="sr-only">Name</label>
+					<input
+						id="first-name"
+						name="first-name"
+						type="text"
+						autocomplete="given-name"
+						required
+						class="bg-apex-moon bg-opacity-10 rounded-sm py-2 pl-2.5 w-full text-apex-moon placeholder:text-apex-moon placeholder:text-opacity-40 text-sm outline-none"
+						placeholder="Name or company name..."
+						bind:value={firstName}
+					/>
+				</div>
+				<div>
+					<p class="text-[12px] mb-1 text-apex-moon text-opacity-25">Company</p>
+					<label for="first-name" class="sr-only">Name</label>
+					<input
+						id="last-name"
+						name="last-name"
+						type="text"
+						autocomplete="given-name"
+						required
+						class="bg-apex-moon bg-opacity-10 rounded-sm py-2 pl-2.5 w-full text-apex-moon placeholder:text-apex-moon placeholder:text-opacity-40 text-sm outline-none"
+						placeholder="Name or company name..."
+						bind:value={lastName}
+					/>
+				</div>
+			</div>
+			<div>
+				<label for="email" class="sr-only">Email</label>
+				<input
+					id="email"
+					name="email"
+					type="email"
+					autocomplete="email"
+					required
+					class="bg-apex-midnight py-2 pl-2.5 border-b-2 border-apex-moon w-full text-apex-moon outline-none"
+					placeholder="Email"
+					bind:value={email}
+				/>
+			</div>
+			<div>
+				<label for="message" class="sr-only">Message</label>
+				<textarea
+					id="message"
+					name="message"
+					rows="4"
+					required
+					class="bg-apex-midnight py-2 pl-2.5 border-2 border-apex-moon w-full text-apex-moon outline-none rounded"
+					placeholder="Inquiry"
+					bind:value={message}
+				/>
+			</div>
+			<div>
+				<button
+					type="submit"
+					class="group relative flex justify-center py-2 px-4 text-apex-midnight font-bold bg-apex-moon w-2/3 mx-auto hover:-translate-y-0.5 transition"
+				>
+					Send
+				</button>
+			</div>
+		</form>
 	</div>
 </section>
 <footer
