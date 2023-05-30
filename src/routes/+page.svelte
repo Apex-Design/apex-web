@@ -350,30 +350,28 @@
 		<form class="mt-8 space-y-6 w-2/3 mx-auto" on:submit|preventDefault={handleSubmit}>
 			<div class="grid grid-cols-2 gap-4">
 				<div>
-					<p class="text-[12px] mb-1 text-apex-moon text-opacity-25">Name</p>
-					<label for="first-name" class="sr-only">Name</label>
+					<label for="first-name" class="sr-only">First Name</label>
 					<input
 						id="first-name"
 						name="first-name"
 						type="text"
 						autocomplete="given-name"
 						required
-						class="bg-apex-moon bg-opacity-10 rounded-sm py-2 pl-2.5 w-full text-apex-moon placeholder:text-apex-moon placeholder:text-opacity-40 text-sm outline-none"
-						placeholder="Name or company name..."
+						class="bg-apex-midnight py-2 pl-2.5 border-b-2 border-apex-moon w-full text-apex-moon outline-none"
+						placeholder="First Name"
 						bind:value={firstName}
 					/>
 				</div>
 				<div>
-					<p class="text-[12px] mb-1 text-apex-moon text-opacity-25">Company</p>
-					<label for="first-name" class="sr-only">Name</label>
+					<label for="last-name" class="sr-only">Last Name</label>
 					<input
 						id="last-name"
 						name="last-name"
 						type="text"
-						autocomplete="given-name"
+						autocomplete="family-name"
 						required
-						class="bg-apex-moon bg-opacity-10 rounded-sm py-2 pl-2.5 w-full text-apex-moon placeholder:text-apex-moon placeholder:text-opacity-40 text-sm outline-none"
-						placeholder="Name or company name..."
+						class="bg-apex-midnight py-2 pl-2.5 border-b-2 border-apex-moon w-full text-apex-moon outline-none"
+						placeholder="Last Name"
 						bind:value={lastName}
 					/>
 				</div>
