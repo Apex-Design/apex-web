@@ -341,15 +341,10 @@
 				contact@apexdesign.io.
 			</a>
 		</p>
-		<h3 class="font-bold text-3xl tracking-[0.1em] leading-[1.3] text-center my-10">OR</h3>
-		<p
-			class="text-xl leading-relaxed tracking-wide text-apex-moon text-opacity-80 text-center w-1/2 mx-auto"
-		>
-			Fill out the form below and we'll get back to you as soon as possible.
-		</p>
-		<form class="mt-8 space-y-6 w-2/3 mx-auto" on:submit|preventDefault={handleSubmit}>
+		<form class="mt-16 space-y-6 w-[73%] mx-auto" on:submit|preventDefault={handleSubmit}>
 			<div class="grid grid-cols-2 gap-4">
 				<div>
+					<p class="text-[13px] mb-1.5 font-medium">YOUR NAME</p>
 					<label for="first-name" class="sr-only">First Name</label>
 					<input
 						id="first-name"
@@ -357,12 +352,13 @@
 						type="text"
 						autocomplete="given-name"
 						required
-						class="bg-apex-midnight py-2 pl-2.5 border-b-2 border-apex-moon w-full text-apex-moon outline-none"
-						placeholder="First Name"
+						class="rounded-sm bg-apex-moon bg-opacity-5 hover:bg-opacity-10 focus:bg-opacity-10 p-3 w-full text-apex-moon placeholder:text-apex-moon placeholder:text-opacity-30 text-[14.5px] outline-none"
+						placeholder="First and last name..."
 						bind:value={firstName}
 					/>
 				</div>
 				<div>
+					<p class="text-[13px] mb-1.5 font-medium">COMPANY</p>
 					<label for="last-name" class="sr-only">Last Name</label>
 					<input
 						id="last-name"
@@ -370,13 +366,14 @@
 						type="text"
 						autocomplete="family-name"
 						required
-						class="bg-apex-midnight py-2 pl-2.5 border-b-2 border-apex-moon w-full text-apex-moon outline-none"
-						placeholder="Last Name"
+						class="rounded-sm bg-apex-moon bg-opacity-5 hover:bg-opacity-10 focus:bg-opacity-10 p-3 w-full text-apex-moon placeholder:text-apex-moon placeholder:text-opacity-30 text-[14.5px] outline-none"
+						placeholder="Company or organization name..."
 						bind:value={lastName}
 					/>
 				</div>
 			</div>
 			<div>
+				<p class="text-[13px] mb-1.5 font-medium">EMAIL</p>
 				<label for="email" class="sr-only">Email</label>
 				<input
 					id="email"
@@ -384,29 +381,30 @@
 					type="email"
 					autocomplete="email"
 					required
-					class="bg-apex-midnight py-2 pl-2.5 border-b-2 border-apex-moon w-full text-apex-moon outline-none"
-					placeholder="Email"
+					class="rounded-sm bg-apex-moon bg-opacity-5 hover:bg-opacity-10 focus:bg-opacity-10 p-3 w-full text-apex-moon placeholder:text-apex-moon placeholder:text-opacity-30 text-[14.5px] outline-none"
+					placeholder="example@email.com..."
 					bind:value={email}
 				/>
 			</div>
 			<div>
-				<label for="message" class="sr-only">Message</label>
+				<p class="text-[13px] mb-1.5 font-medium">INQUIRY</p>
+				<label for="inquiry" class="sr-only">Inquiry</label>
 				<textarea
-					id="message"
-					name="message"
+					id="inquiry"
+					name="inquiry"
 					rows="4"
 					required
-					class="bg-apex-midnight py-2 pl-2.5 border-2 border-apex-moon w-full text-apex-moon outline-none rounded"
-					placeholder="Inquiry"
+					class="rounded-sm bg-apex-moon bg-opacity-5 hover:bg-opacity-10 focus:bg-opacity-10 p-3 w-full text-apex-moon placeholder:text-apex-moon placeholder:text-opacity-30 text-[14.5px] outline-none"
+					placeholder="Hey! I was thinking..."
 					bind:value={message}
 				/>
 			</div>
 			<div>
 				<button
 					type="submit"
-					class="group relative flex justify-center py-2 px-4 text-apex-midnight font-bold bg-apex-moon w-2/3 mx-auto hover:-translate-y-0.5 transition"
+					class="mt-10 text-sm flex justify-center py-2 px-4 text-apex-midnight font-bold bg-apex-moon w-1/3 mx-auto hover:-translate-y-1 ease-out duration-200"
 				>
-					Send
+					SEND
 				</button>
 			</div>
 		</form>
