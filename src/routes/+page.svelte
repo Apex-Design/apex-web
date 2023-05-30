@@ -322,8 +322,8 @@
 		</div>
 	</section>
 </div>
-<section id="about-us" class="pt-56 flex flex-row w-[60rem] mx-auto">
-	<div class="flex flex-col w-full mb-64">
+<section id="contact" class="pt-56 flex flex-row w-[60rem] mx-auto">
+	<div class="flex flex-col w-full mb-32">
 		<h2 class="font-bold text-5xl tracking-[0.1em] leading-[1.3] text-center">
 			LET'S BUILD SOMETHING.
 			<br />
@@ -402,7 +402,7 @@
 			<div>
 				<button
 					type="submit"
-					class="mt-10 text-sm flex justify-center py-2 px-4 text-apex-midnight font-bold bg-apex-moon w-1/3 mx-auto hover:-translate-y-1 ease-out duration-200"
+					class="mt-10 text-sm flex justify-center py-2 px-4 text-apex-midnight font-bold bg-apex-moon w-1/3 mx-auto hover:bg-opacity-10 hover:text-apex-moon border border-apex-midnight hover:border-apex-moon hover:border-opacity-40 rounded-sm"
 				>
 					SEND
 				</button>
