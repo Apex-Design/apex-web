@@ -111,6 +111,33 @@
 	];
 
 	let showcaseIndex = 1;
+
+	// Handle form submission
+	let firstName = '';
+    let lastName = '';
+    let email = '';
+    let message = '';
+
+	async function handleSubmit() {
+        const response = await fetch('/api/send-email', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                firstName,
+                lastName,
+                email,
+                message,
+            }),
+        });
+
+        if (response.ok) {
+            alert('Email sent successfully, we\'ll get back to you as soon as possible!');
+        } else {
+            alert('Failed to send email');
+        }
+    }
 </script>
 
 <section id="home" class="flex flex-row mt-16 w-[80rem] mx-auto h-[56rem]">
@@ -321,6 +348,37 @@
 				contact@apexdesign.io.
 			</a>
 		</p>
+		<h3 class="font-bold text-3xl tracking-[0.1em] leading-[1.3] text-center my-10">OR</h3>
+		<p
+			class="text-xl leading-relaxed tracking-wide text-apex-moon text-opacity-80 text-center w-1/2 mx-auto"
+		>
+			Fill out the form below and we'll get back to you as soon as possible.
+		</p>
+		<form class="mt-8 space-y-6 w-2/3 mx-auto" on:submit|preventDefault={handleSubmit}>
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label for="first-name" class="sr-only">First Name</label>
+                    <input id="first-name" name="first-name" type="text" autocomplete="given-name" required class="bg-apex-midnight py-2 pl-2.5 border-b-2 border-apex-moon w-full text-apex-moon outline-none" placeholder="First Name" bind:value={firstName} />
+                </div>
+                <div>
+                    <label for="last-name" class="sr-only">Last Name</label>
+                    <input id="last-name" name="last-name" type="text" autocomplete="family-name" required class="bg-apex-midnight py-2 pl-2.5 border-b-2 border-apex-moon w-full text-apex-moon outline-none" placeholder="Last Name" bind:value={lastName} />
+                </div>
+            </div>
+            <div>
+                <label for="email" class="sr-only">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" required class="bg-apex-midnight py-2 pl-2.5 border-b-2 border-apex-moon w-full text-apex-moon outline-none" placeholder="Email" bind:value={email} />
+            </div>
+            <div>
+                <label for="message" class="sr-only">Message</label>
+                <textarea id="message" name="message" rows="4" required class="bg-apex-midnight py-2 pl-2.5 border-2 border-apex-moon w-full text-apex-moon outline-none rounded" placeholder="Inquiry" bind:value={message}></textarea>
+            </div>
+            <div>
+                <button type="submit" class="group relative flex justify-center py-2 px-4 text-apex-midnight font-bold bg-apex-moon w-2/3 mx-auto hover:-translate-y-0.5 transition">
+                    Send
+                </button>
+            </div>
+        </form>
 	</div>
 </section>
 <footer
