@@ -1,52 +1,13 @@
 <script lang="ts">
 	import ProjectShowcase from '../lib/ProjectShowcase.svelte';
+	import Roadmap from '../lib/Roadmap.svelte';
+	import Team from '../lib/Team.svelte';
+	import TechShowcase from '../lib/TechShowcase.svelte';
 
 	const NAV_ITEMS = ['HOW WE WORK', 'ABOUT US', 'SHOWCASE', 'CONTACT'];
 
-	// Descriptions for the "How We Work" section
-	const HWW_DETAILS = [
-		{
-			title: 'IMAGINE',
-			description: 'Turn that raw creativity into buildable ideas.'
-		},
-		{
-			title: 'PLAN',
-			description: 'Create beautiful designs and architect the solution.'
-		},
-		{
-			title: 'DEVELOP',
-			description: 'Iterative development with a focus on quality.'
-		},
-		{
-			title: 'LAUNCH',
-			description: 'Deploy your product everywhere your customers are.'
-		}
-	];
-
-	// Profiles for the "About Us" section
-	const PROFILES = [
-		{
-			name: 'Dayyan Sisson',
-			role1: 'Frontend Developer',
-			role2: 'UI/UX Design',
-			image: './team/dayyan.jpg',
-			link: 'https://www.linkedin.com/in/dayyan-sisson-a58479a7/'
-		},
-		{
-			name: 'Gabriel Beal',
-			role1: 'Full Stack Developer',
-			role2: 'System Architecture',
-			image: './team/gabriel.jpg',
-			link: 'https://www.linkedin.com/in/gabe-beal/'
-		},
-		{
-			name: 'Brian Rojas',
-			role1: 'Backend Developer',
-			role2: 'DevOps',
-			image: './team/brian.jpg',
-			link: 'https://www.linkedin.com/in/brianrojas95/'
-		}
-	];
+	// Toggle for showing team/tech stack
+	let showTeam = true;
 
 	// Projects for the "Showcase" section
 	const SHOWCASE = [
@@ -193,8 +154,7 @@
 				<a
 					href={`#${item.toLowerCase().replaceAll(' ', '-')}`}
 					class:ml-20={index > 0}
-					class="group tracking-widest font-medium whitespace-nowrap flex flex-col"
-				>
+					class="group tracking-widest font-medium whitespace-nowrap flex flex-col">
 					<p class="pb-2">{item}</p>
 					<div class="w-0 group-hover:w-2/3 h-px bg-apex-moon ease-out duration-300" />
 				</a>
@@ -203,8 +163,7 @@
 		<img
 			src="./images/tablet.webp"
 			alt="Design"
-			class="h-[56rem] object-cover absolute top-28 w-full"
-		/>
+			class="h-[56rem] object-cover absolute top-28 w-full" />
 	</div>
 </section>
 <div class="bg-apex-moon text-apex-midnight">
@@ -227,60 +186,17 @@
 			<img
 				src="./images/product.webp"
 				alt="Design"
-				class="h-[40rem] object-cover absolute top-[28rem] w-full"
-			/>
+				class="h-[40rem] object-cover absolute top-[28rem] w-full" />
 		</div>
-		<div class="mt-32 ml-32 flex flex-col w-2/3 pb-48">
-			{#each HWW_DETAILS as details, index}
-				<h3 class="font-bold text-3xl tracking-[0.1em] leading-[1.3]">
-					<span class="text-apex-midnight text-opacity-25 font-semibold">{index + 1}.</span>
-					{details.title.toUpperCase()}
-				</h3>
-				<p class="text-apex-midnight text-opacity-40 text-lg mt-4 leading-relaxed tracking-wide">
-					{details.description}
-				</p>
-				{#if index < HWW_DETAILS.length - 1}
-					<div class="mt-12 mb-16 w-2/3 h-px bg-apex-midnight bg-opacity-10" />
-				{/if}
-			{/each}
-		</div>
+		<Roadmap />
 	</section>
 </div>
-<section id="about-us" class="pt-64 flex flex-row w-[80rem] mx-auto">
-	<div class="mx-32 flex flex-col w-full pb-48">
-		{#each PROFILES as profile, index}
-			<a
-				href={profile.link}
-				target="_blank"
-				class:ml-28={index === 0}
-				class:-ml-32={index === 1}
-				class:ml-48={index === 2}
-				class:mt-6={index === 1}
-				class:mb-14={index < 2}
-				class="flex flex-row items-center group"
-			>
-				<img src={profile.image} alt={profile.name} class="aspect-square object-cover w-48" />
-				<div class="ml-8 flex flex-col text-lg">
-					<h4 class="text-base font-medium tracking-widest mb-2">
-						{profile.name.toUpperCase()}
-					</h4>
-					<div class="mb-4 w-1/3 h-px bg-apex-moon bg-opacity-10" />
-					<p
-						class="text-apex-moon text-opacity-40 text-sm tracking-wide leading-relaxed whitespace-nowrap"
-					>
-						{profile.role1.toUpperCase()}
-						<br />
-						{profile.role2.toUpperCase()}
-					</p>
-					<p
-						class="text-sm text-apex-moon -ml-6 group-hover:ml-0 duration-200 ease-out text-opacity-0 group-hover:text-opacity-60 mt-0 group-hover:mt-4"
-					>
-						Visit Profile ⟶
-					</p>
-				</div>
-			</a>
-		{/each}
-	</div>
+<section id="about-us" class="pt-64 flex flex-row w-[80rem] mx-auto relative h-[76rem]">
+	{#if showTeam}
+		<Team />
+	{:else}
+		<TechShowcase />
+	{/if}
 	<div class="ml-12 mt-20 flex flex-col w-full relative">
 		<h2 class="font-bold text-5xl tracking-[0.1em] leading-[1.3]">
 			WITH A KILLER TEAM. AND SOME KILLER TOOLS.
@@ -291,7 +207,16 @@
 			<br />
 			You can take our word for it.
 		</p>
-		<div class="mt-20 w-1/2 h-[1.5px] bg-apex-moon bg-opacity-10" />
+		<div class="mt-16 w-1/2 h-[1.5px] bg-apex-moon bg-opacity-10" />
+		<button
+			on:click={() => (showTeam = !showTeam)}
+			class="mt-16 bg-apex-moon hover:bg-white px-6 py-3 rounded-sm text-apex-midnight font-semibold mr-auto text-sm">
+			{#if showTeam}
+				SEE OUR TECH STACK
+			{:else}
+				SEE THE TEAM
+			{/if}
+		</button>
 	</div>
 </section>
 <div class="bg-apex-moon text-apex-midnight">
@@ -311,8 +236,7 @@
 					on:click={() => setShowcaseIndex(index)}
 					class:bg-opacity-20={showcaseIndex !== index}
 					class:hover:bg-opacity-40={showcaseIndex !== index}
-					class="h-2 w-2 mx-2 rounded-full bg-apex-midnight"
-				/>
+					class="h-2 w-2 mx-2 rounded-full bg-apex-midnight" />
 			{/each}
 		</div>
 		<div class="relative h-[56rem] w-full">
@@ -322,8 +246,8 @@
 		</div>
 	</section>
 </div>
-<section id="about-us" class="pt-56 flex flex-row w-[60rem] mx-auto">
-	<div class="flex flex-col w-full mb-64">
+<section id="contact" class="pt-56 flex flex-row w-[60rem] mx-auto">
+	<div class="flex flex-col w-full mb-32">
 		<h2 class="font-bold text-5xl tracking-[0.1em] leading-[1.3] text-center">
 			LET'S BUILD SOMETHING.
 			<br />
@@ -331,52 +255,49 @@
 		</h2>
 		<div class="mx-auto mt-20 w-1/4 h-[1.5px] bg-apex-moon bg-opacity-10" />
 		<p
-			class="text-xl mt-12 leading-relaxed tracking-wide text-apex-moon text-opacity-80 text-center w-1/2 mx-auto"
-		>
+			class="text-xl mt-12 leading-relaxed tracking-wide text-apex-moon text-opacity-80 text-center w-1/2 mx-auto">
 			If you want to learn more, or are ready to dive into your next venture, reach out to us by
 			email at <a
-				href="contact@apexdesign.io"
-				class="text-orange-400 hover:text-orange-300 tracking-wider font-semibold"
-			>
+				href="mailto:contact@apexdesign.io"
+				class="text-orange-400 hover:text-orange-300 tracking-wider font-medium">
 				contact@apexdesign.io.
 			</a>
 		</p>
-		<h3 class="font-bold text-3xl tracking-[0.1em] leading-[1.3] text-center my-10">OR</h3>
-		<p
-			class="text-xl leading-relaxed tracking-wide text-apex-moon text-opacity-80 text-center w-1/2 mx-auto"
-		>
-			Fill out the form below and we'll get back to you as soon as possible.
-		</p>
-		<form class="mt-8 space-y-6 w-2/3 mx-auto" on:submit|preventDefault={handleSubmit}>
+		<form class="mt-16 space-y-6 w-[73%] mx-auto" on:submit|preventDefault={handleSubmit}>
 			<div class="grid grid-cols-2 gap-4">
 				<div>
-					<label for="first-name" class="sr-only">First Name</label>
+					<div class="flex flex-row">
+						<p class="text-[13px] mb-2 font-medium">YOUR NAME</p>
+						<p class="text-[11px] ml-3 mt-px text-apex-moon text-opacity-20">REQUIRED</p>
+					</div>
+					<label for="name" class="sr-only">Name</label>
 					<input
-						id="first-name"
-						name="first-name"
+						id="name"
+						name="name"
 						type="text"
 						autocomplete="given-name"
 						required
-						class="bg-apex-midnight py-2 pl-2.5 border-b-2 border-apex-moon w-full text-apex-moon outline-none"
-						placeholder="First Name"
-						bind:value={firstName}
-					/>
+						class="rounded-sm bg-apex-moon bg-opacity-5 hover:bg-opacity-10 focus:bg-opacity-10 p-3 w-full text-apex-moon placeholder:text-apex-moon placeholder:text-opacity-30 text-[14.5px] outline-none"
+						placeholder="First and last name..."
+						bind:value={firstName} />
 				</div>
 				<div>
-					<label for="last-name" class="sr-only">Last Name</label>
+					<p class="text-[13px] mb-2 font-medium">COMPANY</p>
+					<label for="company" class="sr-only">Company</label>
 					<input
-						id="last-name"
-						name="last-name"
+						id="company"
+						name="company"
 						type="text"
-						autocomplete="family-name"
-						required
-						class="bg-apex-midnight py-2 pl-2.5 border-b-2 border-apex-moon w-full text-apex-moon outline-none"
-						placeholder="Last Name"
-						bind:value={lastName}
-					/>
+						class="rounded-sm bg-apex-moon bg-opacity-5 hover:bg-opacity-10 focus:bg-opacity-10 p-3 w-full text-apex-moon placeholder:text-apex-moon placeholder:text-opacity-30 text-[14.5px] outline-none"
+						placeholder="Company or organization name..."
+						bind:value={lastName} />
 				</div>
 			</div>
 			<div>
+				<div class="flex flex-row">
+					<p class="text-[13px] mb-2 font-medium">EMAIL</p>
+					<p class="text-[11px] ml-3 mt-px text-apex-moon text-opacity-20">REQUIRED</p>
+				</div>
 				<label for="email" class="sr-only">Email</label>
 				<input
 					id="email"
@@ -384,37 +305,37 @@
 					type="email"
 					autocomplete="email"
 					required
-					class="bg-apex-midnight py-2 pl-2.5 border-b-2 border-apex-moon w-full text-apex-moon outline-none"
-					placeholder="Email"
-					bind:value={email}
-				/>
+					class="rounded-sm bg-apex-moon bg-opacity-5 hover:bg-opacity-10 focus:bg-opacity-10 p-3 w-full text-apex-moon placeholder:text-apex-moon placeholder:text-opacity-30 text-[14.5px] outline-none"
+					placeholder="example@email.com..."
+					bind:value={email} />
 			</div>
 			<div>
-				<label for="message" class="sr-only">Message</label>
+				<div class="flex flex-row">
+					<p class="text-[13px] mb-2 font-medium">INQUIRY</p>
+					<p class="text-[11px] ml-3 mt-px text-apex-moon text-opacity-20">REQUIRED</p>
+				</div>
+				<label for="inquiry" class="sr-only">Inquiry</label>
 				<textarea
-					id="message"
-					name="message"
-					rows="4"
+					id="inquiry"
+					name="inquiry"
+					rows="8"
 					required
-					class="bg-apex-midnight py-2 pl-2.5 border-2 border-apex-moon w-full text-apex-moon outline-none rounded"
-					placeholder="Inquiry"
-					bind:value={message}
-				/>
+					class="rounded-sm bg-apex-moon bg-opacity-5 hover:bg-opacity-10 focus:bg-opacity-10 p-3 w-full text-apex-moon placeholder:text-apex-moon placeholder:text-opacity-30 text-[14.5px] outline-none"
+					placeholder="Hey! I was thinking..."
+					bind:value={message} />
 			</div>
 			<div>
 				<button
 					type="submit"
-					class="group relative flex justify-center py-2 px-4 text-apex-midnight font-bold bg-apex-moon w-2/3 mx-auto hover:-translate-y-0.5 transition"
-				>
-					Send
+					class="mt-10 text-sm flex justify-center py-2 px-4 text-apex-midnight font-semibold bg-apex-moon w-1/3 mx-auto hover:bg-white rounded-sm">
+					SEND
 				</button>
 			</div>
 		</form>
 	</div>
 </section>
 <footer
-	class="flex flex-row w-full border-t border-apex-moon border-opacity-5 items-center px-12 py-6"
->
+	class="flex flex-row w-full border-t border-apex-moon border-opacity-5 items-center px-12 py-6">
 	<img src="./apex.svg" alt="Apex Design" class="w-4" />
 	<a href="/" class="ml-4 tracking-widest font-medium">APEX DESIGN.</a>
 	<div class="flex flex-row mx-auto text-[13px]">
