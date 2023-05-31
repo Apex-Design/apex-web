@@ -146,7 +146,7 @@
 	</nav>
 </header>
 <section id="home" class="flex flex-col md:flex-row  w-[80rem] mx-auto h-[56rem] relative">
-	<div class="flex flex-col mr-16 w-[40%]">
+	<div class="flex flex-col mr-16 w-full">
 		<h1 class="mt-32 text-[80px] font-bold tracking-[0.3em] leading-[1.3]">
 			APEX
 			<br />
