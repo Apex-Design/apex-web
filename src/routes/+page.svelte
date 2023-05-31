@@ -131,9 +131,22 @@
 	}
 </script>
 
-<section id="home" class="flex flex-row mt-16 w-[80rem] mx-auto h-[56rem]">
-	<div class="flex flex-col mr-16">
-		<img src="./apex.svg" alt="Apex Design" class="w-14 mt-4" />
+<header class="flex flex-row w-[80rem] mx-auto mt-16">
+	<img src="./apex.svg" alt="Apex Design" class="w-14 mt-4" />
+	<nav class="flex flex-row items-center text-sm ml-auto">
+		{#each NAV_ITEMS as item, index}
+			<a
+				href={`#${item.toLowerCase().replaceAll(' ', '-')}`}
+				class:ml-20={index > 0}
+				class="group tracking-widest font-medium whitespace-nowrap flex flex-col">
+				<p class="pb-2">{item}</p>
+				<div class="w-0 group-hover:w-2/3 h-px bg-apex-moon ease-out duration-300" />
+			</a>
+		{/each}
+	</nav>
+</header>
+<section id="home" class="flex flex-col md:flex-row  w-[80rem] mx-auto h-[56rem]">
+	<div class="flex flex-col mr-16 w-[40%]">
 		<h1 class="mt-32 text-[80px] font-bold tracking-[0.3em] leading-[1.3]">
 			APEX
 			<br />
@@ -149,21 +162,10 @@
 		</p>
 	</div>
 	<div class="flex flex-col relative ml-16">
-		<nav class="flex flex-row items-center text-sm">
-			{#each NAV_ITEMS as item, index}
-				<a
-					href={`#${item.toLowerCase().replaceAll(' ', '-')}`}
-					class:ml-20={index > 0}
-					class="group tracking-widest font-medium whitespace-nowrap flex flex-col">
-					<p class="pb-2">{item}</p>
-					<div class="w-0 group-hover:w-2/3 h-px bg-apex-moon ease-out duration-300" />
-				</a>
-			{/each}
-		</nav>
 		<img
 			src="./images/tablet.webp"
 			alt="Design"
-			class="h-[56rem] object-cover absolute top-28 w-full" />
+			class="h-[56rem] object-cover w-full" />
 	</div>
 </section>
 <div class="bg-apex-moon text-apex-midnight">
