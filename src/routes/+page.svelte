@@ -133,7 +133,7 @@
 
 <header class="flex flex-row w-[80rem] mx-auto mt-16">
 	<img src="./apex.svg" alt="Apex Design" class="w-14 mt-4" />
-	<nav class="flex flex-row items-center text-sm ml-auto">
+	<nav class="flex flex-row items-start text-sm ml-auto">
 		{#each NAV_ITEMS as item, index}
 			<a
 				href={`#${item.toLowerCase().replaceAll(' ', '-')}`}
