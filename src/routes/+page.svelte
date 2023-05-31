@@ -145,7 +145,7 @@
 		{/each}
 	</nav>
 </header>
-<section id="home" class="flex flex-col md:flex-row  w-[80rem] mx-auto h-[56rem] relative">
+<section id="home" class="flex flex-col md:flex-row px-20 mx-auto h-[56rem] relative">
 	<div class="flex flex-col mr-16 w-full">
 		<h1 class="mt-32 text-[80px] font-bold tracking-[0.3em] leading-[1.3]">
 			APEX
@@ -161,11 +161,11 @@
 			Beautifully.
 		</p>
 	</div>
-	<div class="flex flex-col relative ml-16 w-full">
+	<div class="relative ml-12 w-full">
 		<img
 			src="./images/tablet.webp"
 			alt="Design"
-			class="h-[56rem] object-cover w-full absolute top-28" />
+			class="h-[56rem] object-cover w-full absolute top-20" />
 	</div>
 </section>
 <div class="bg-apex-moon text-apex-midnight">
