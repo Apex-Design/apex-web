@@ -11,6 +11,9 @@ export default {
 			},
 			fontFamily: {
 				sans: ['proxima-nova', 'system-ui', 'sans-serif']
+			},
+			screens: {
+				'md/lg': '930px',
 			}
 		}
 	},

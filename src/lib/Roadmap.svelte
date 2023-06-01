@@ -24,7 +24,7 @@
 	const inView = Array(STEPS.length).fill(false);
 </script>
 
-<div class="mt-32 ml-32 flex flex-col w-2/3 pb-48">
+<div class="mt-32 md:ml-32 flex flex-col w-full md:w-2/3 pb-48">
 	{#each STEPS as details, index}
 		<div
 			use:viewport

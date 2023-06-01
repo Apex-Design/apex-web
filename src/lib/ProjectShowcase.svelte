@@ -25,11 +25,11 @@
 </script>
 
 {#if index === showcaseIndex}
-	<div class="flex flex-row mt-20 items-center absolute top-0 left-0">
+	<div class="flex flex-col md/lg:flex-row mt-20 items-center md/lg:absolute top-0 left-0">
 		<div
 			in:fly={{ x: 50 * reverse(), delay: 150 }}
 			out:fly={{ x: -50 * reverse() }}
-			class="flex flex-col w-2/3 ml-32"
+			class="flex flex-col w-2/3 md/lg:ml-32"
 		>
 			<h4 class="text-apex-midnight text-opacity-25 font-bold tracking-widest mb-3">PROJECT</h4>
 			<p class="text-2xl tracking-widest font-bold">
@@ -61,7 +61,7 @@
 				{project.stack}
 			</p>
 		</div>
-		<div class="ml-32 flex flex-col w-full relative">
+		<div class="md/lg:ml-32 flex flex-col w-full relative">
 			<img
 				src={project.image}
 				alt={project.project}
