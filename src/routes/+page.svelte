@@ -254,7 +254,7 @@
 	{/if}
 </section>
 <div class="bg-apex-moon text-apex-midnight">
-	<section id="showcase" class="pt-40 flex flex-col items-center mx-auto">
+	<section id="showcase" class="pt-40 flex flex-col items-center mx-auto px-10 sm:px-14 md:px-24 lg:px-28 xl:px-36">
 		<h2 class="font-bold text-5xl tracking-[0.1em] leading-[1.3] text-center">
 			CHECK OUT SOME
 			<br />
@@ -273,7 +273,7 @@
 					class="h-2 w-2 mx-2 rounded-full bg-apex-midnight" />
 			{/each}
 		</div>
-		<div class="relative min-h-[56rem] w-full">
+		<div class="relative min-h-[56rem] w-full lg:w-[80%] xl:w-[75%]">
 			{#each SHOWCASE as project, index}
 				<ProjectShowcase {project} {showcaseIndex} {prevShowcaseIndex} {index} />
 			{/each}

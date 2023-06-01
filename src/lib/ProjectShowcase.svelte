@@ -29,7 +29,7 @@
 		<div
 			in:fly={{ x: 50 * reverse(), delay: 150 }}
 			out:fly={{ x: -50 * reverse() }}
-			class="flex flex-col w-2/3 md/lg:ml-32"
+			class="flex flex-col w-2/3"
 		>
 			<h4 class="text-apex-midnight text-opacity-25 font-bold tracking-widest mb-3">PROJECT</h4>
 			<p class="text-2xl tracking-widest font-bold">
