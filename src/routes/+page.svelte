@@ -162,7 +162,7 @@
 </script>
 
 <header class="flex flex-row px-10 sm:px-14 md:px-16 lg:px-20 mx-auto mt-8 md:mt-16">
-	<img src="/apex.svg" alt="Apex Design" class="w-14 mt-4 z-10" />
+	<img src="./apex.svg" alt="Apex Design" class="w-14 mt-4 z-10" />
 	<nav class="hidden md:flex flex-row items-start text-sm ml-auto">
 		{#each NAV_ITEMS as item, index}
 			<a
