@@ -81,7 +81,7 @@
 					class:md:h-96={project.mobileAspect !== 'aspect-[9/16]'}
 					class:sm:h-80={project.mobileAspect !== 'aspect-[9/16]'}
 					class:h-60={project.mobileAspect !== 'aspect-[9/16]'}
-					class:sm:visible={project.mobileAspect !== 'aspect-[9/16]'}
+					class:sm:block={project.mobileAspect !== 'aspect-[9/16]'}
 					class:hidden={project.mobileAspect !== 'aspect-[9/16]'}
 					class:bottom-12={project.mobileAspect !== 'aspect-[9/16]'}
 					class:xl:w-64={project.mobileAspect === 'aspect-[9/16]'}
