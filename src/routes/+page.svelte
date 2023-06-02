@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
+	import { swipe } from 'svelte-gestures';
 
 	import ProjectShowcase from '../lib/ProjectShowcase.svelte';
 	import Roadmap from '../lib/Roadmap.svelte';
@@ -104,6 +105,18 @@
 		prevShowcaseIndex = showcaseIndex;
 		showcaseIndex = index;
 	};
+
+	function handleSwipe(event: { detail: { direction: string; }; }) {
+		if (event.detail.direction === 'left') {
+			if (showcaseIndex < SHOWCASE.length - 1) {
+				setShowcaseIndex(showcaseIndex + 1);
+			}
+		} else if (event.detail.direction === 'right') {
+			if (showcaseIndex > 0) {
+				setShowcaseIndex(showcaseIndex - 1);
+			}
+		}
+	}
 
 	// Handle form submission
 	let name = '';
@@ -267,7 +280,7 @@
 			We've been around the block. From small startups to large enterprises, we've helped build
 			products for all kinds of clients.
 		</p>
-		<div class="flex flex-row mt-20">
+		<div class="flex flex-row mt-20" on:swipe={handleSwipe}>
 			{#each SHOWCASE as _, index}
 				<button
 					on:click={() => setShowcaseIndex(index)}

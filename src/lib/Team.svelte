@@ -47,8 +47,8 @@
 			class:opacity-0={!inView[index]}
 			class:delay-300={inView[index]}
 			class="flex flex-row items-center group ease-out duration-300">
-			<img src={profile.image} alt={profile.name} class="aspect-square object-cover w-48" />
-			<div class="ml-8 flex flex-col text-lg">
+			<img src={profile.image} alt={profile.name} class="aspect-square object-cover w-28 md:w-48" />
+			<div class="ml-4 md:ml-8 flex flex-col text-lg">
 				<h4 class="text-base font-medium tracking-widest mb-2">
 					{profile.name.toUpperCase()}
 				</h4>
