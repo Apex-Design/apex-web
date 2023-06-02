@@ -280,7 +280,7 @@
 			We've been around the block. From small startups to large enterprises, we've helped build
 			products for all kinds of clients.
 		</p>
-		<div class="flex flex-row mt-20" on:swipe={handleSwipe} use:swipe={{ timeframe: 300, minSwipeDistance: 60, touchAction: 'pan-y' }}>
+		<div class="flex flex-row mt-20">
 			{#each SHOWCASE as _, index}
 				<button
 					on:click={() => setShowcaseIndex(index)}
@@ -289,7 +289,7 @@
 					class="h-2 w-2 mx-2 rounded-full bg-apex-midnight" />
 			{/each}
 		</div>
-		<div class="relative w-full 2xl:w-[80%]">
+		<div class="relative w-full 2xl:w-[80%]" on:swipe={handleSwipe} use:swipe={{ timeframe: 300, minSwipeDistance: 60, touchAction: 'pan-y' }}>
 			{#each SHOWCASE as project, index}
 				<ProjectShowcase {project} {showcaseIndex} {prevShowcaseIndex} {index} />
 			{/each}
