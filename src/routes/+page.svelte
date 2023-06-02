@@ -205,7 +205,7 @@
 </header>
 <section id="home" class="flex flex-col px-10 sm:px-14 md:px-16 lg:px-20 md:flex-row mx-auto pb-52 sm:pb-60 relative">
 	<div class="flex flex-col lg:mr-16 w-full">
-		<h1 class="mt-32 text-[60px] sm:text-[80px] font-bold tracking-[0.3em] leading-[1.3]">
+		<h1 class="mt-32  text-[48px] min-[500px]:text-[60px] sm:text-[80px] font-bold tracking-[0.3em] leading-[1.3]">
 			APEX
 			<br />
 			DESIGN.
@@ -256,10 +256,10 @@
 </div>
 <section id="about-us" class="pt-64 flex flex-col md/lg:flex-row-reverse mx-auto min-h-[76rem] px-10 sm:px-14 md:px-16 lg:px-20">
 	<div class="sm:ml-12 xl:mt-20 flex flex-col w-full">
-		<h2 class="font-bold text-[44px] xl:text-5xl tracking-[0.1em] leading-[1.3]">
+		<h2 class="font-bold text-[36px] sm:text-[44px] xl:text-5xl tracking-[0.1em] leading-[1.3]">
 			WITH A KILLER TEAM. AND SOME KILLER TOOLS.
 		</h2>
-		<p class="text-xl mt-12 leading-relaxed tracking-wide text-apex-moon text-opacity-80">
+		<p class="text-lg sm:text-xl mt-12 leading-relaxed tracking-wide text-apex-moon text-opacity-80">
 			We're a pretty cool team, who can build pretty cool stuff, using pretty cool tech.
 			<br />
 			<br />
@@ -284,12 +284,12 @@
 </section>
 <div class="bg-apex-moon text-apex-midnight">
 	<section id="showcase" class="py-40 flex flex-col items-center mx-auto px-10 sm:px-14 md:px-24 lg:px-28 xl:px-36">
-		<h2 class="font-bold text-5xl tracking-[0.1em] leading-[1.3] text-center">
+		<h2 class="font-bold text-[40px] sm:text-[44px] md:text-5xl tracking-[0.1em] leading-[1.3] text-center">
 			CHECK OUT SOME
-			<br />
+			<br class="max-sm:hidden" />
 			OF OUR WORK.
 		</h2>
-		<p class="text-xl mt-12 leading-relaxed tracking-wide text-center w-4/5 md/lg:w-1/2">
+		<p class="text-lg sm:text-xl mt-12 leading-relaxed tracking-wide text-center w-4/5 md/lg:w-1/2">
 			We've been around the block. From small startups to large enterprises, we've helped build
 			products for all kinds of clients.
 		</p>
@@ -311,14 +311,14 @@
 </div>
 <section id="contact" class="pt-56 flex flex-row lg:px-36 mx-auto">
 	<div class="flex flex-col w-full mb-32">
-		<h2 class="font-bold text-5xl tracking-[0.1em] leading-[1.3] text-center">
+		<h2 class="font-bold text-[38px] sm:text-5xl tracking-[0.1em] leading-[1.3] text-center">
 			LET'S BUILD SOMETHING.
-			<br />
+			<br class="max-sm:hidden"/>
 			BEAUTIFUL.
 		</h2>
 		<div class="mx-auto mt-20 w-1/4 h-[1.5px] bg-apex-moon bg-opacity-10" />
 		<p
-			class="text-xl mt-12 leading-relaxed tracking-wide text-apex-moon text-opacity-80 text-center w-1/2 mx-auto">
+			class="text-lg sm:text-xl mt-12 leading-relaxed tracking-wide text-apex-moon text-opacity-80 text-center px-10 sm:px-0 w-full sm:w-1/2 mx-auto">
 			If you want to learn more, or are ready to dive into your next venture, reach out to us by
 			email at <a
 				href="mailto:contact@apexdesign.io"

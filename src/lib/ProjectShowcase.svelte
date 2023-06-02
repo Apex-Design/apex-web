@@ -35,7 +35,7 @@
 			<p class="text-2xl tracking-widest font-bold">
 				{project.project.toUpperCase()}
 			</p>
-			<h4 class="text-apex-midnight text-opacity-25 font-bold tracking-widest mt-12 mb-3">
+			<h4 class="text-apex-midnight text-opacity-25 font-bold tracking-widest mt-6 md/lg:mt-12 mb-3">
 				CLIENT
 			</h4>
 			<a
@@ -46,18 +46,18 @@
 				{project.client.toUpperCase()}
 			</a>
 
-			<h4 class="text-apex-midnight text-opacity-25 font-bold tracking-widest mt-12 mb-3">SCOPE</h4>
+			<h4 class="text-apex-midnight text-opacity-25 font-bold tracking-widest mt-6 md/lg:mt-12 mb-3">SCOPE</h4>
 			<p class="text-2xl tracking-widest font-bold">
 				{project.scope.toUpperCase()}
 			</p>
 
-			<h4 class="text-apex-midnight text-opacity-25 font-bold tracking-widest mt-12 mb-3">
+			<h4 class="text-apex-midnight text-opacity-25 font-bold tracking-widest mt-6 md/lg:mt-12 mb-3">
 				BREAKDOWN
 			</h4>
 			<p class="text-xl font-semibold">
 				{project.description}
 			</p>
-			<p class="text-[15px] mt-20 text-apex-midnight text-opacity-40">
+			<p class="text-[15px] mt-12 md/lg:mt-20 text-apex-midnight text-opacity-40">
 				{project.stack}
 			</p>
 		</div>
