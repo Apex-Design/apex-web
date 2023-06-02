@@ -29,7 +29,7 @@
 	const inView = Array(PROFILES.length).fill(false);
 </script>
 
-<div class="mx-32 flex flex-col w-full pb-48">
+<div class="mt-16 md/lg:mt-0 lg:mx-32 flex flex-col w-full pb-48 md/lg:items-start sm:max-md/lg:ml-12">
 	{#each PROFILES as profile, index}
 		<a
 			use:viewport
@@ -37,10 +37,10 @@
 			on:exitViewport={() => (inView[index] = false)}
 			href={profile.link}
 			target="_blank"
-			class:ml-28={index === 0}
-			class:-ml-32={index === 1}
-			class:ml-48={index === 2}
-			class:mt-6={index === 1}
+			class:xl:ml-28={index === 0}
+			class:xl:-ml-32={index === 1}
+			class:xl:ml-48={index === 2}
+			class:xl:mt-6={index === 1}
 			class:mb-14={index < 2}
 			class:translate-x-10={!inView[index] && index !== 1}
 			class:-translate-x-10={!inView[index] && index === 1}

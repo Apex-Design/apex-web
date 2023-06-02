@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { fly } from 'svelte/transition';
+
 	import ProjectShowcase from '../lib/ProjectShowcase.svelte';
 	import Roadmap from '../lib/Roadmap.svelte';
 	import Team from '../lib/Team.svelte';
@@ -104,8 +106,8 @@
 	};
 
 	// Handle form submission
-	let firstName = '';
-	let lastName = '';
+	let name = '';
+	let company = '';
 	let email = '';
 	let message = '';
 
@@ -116,8 +118,8 @@
 				'Content-Type': 'application/json'
 			},
 			body: JSON.stringify({
-				firstName,
-				lastName,
+				name,
+				company,
 				email,
 				message
 			})
@@ -129,18 +131,61 @@
 			alert('Failed to send email');
 		}
 	}
+
+	let isOpen = false;
 </script>
 
-<section id="home" class="flex flex-row mt-16 w-[80rem] mx-auto h-[56rem]">
-	<div class="flex flex-col mr-16">
-		<img src="./apex.svg" alt="Apex Design" class="w-14 mt-4" />
-		<h1 class="mt-32 text-[80px] font-bold tracking-[0.3em] leading-[1.3]">
+<header class="flex flex-row px-10 sm:px-14 md:px-16 lg:px-20 mx-auto mt-8 md:mt-16">
+	<img src="./apex.svg" alt="Apex Design" class="w-14 mt-4" />
+	<nav class="hidden md:flex flex-row items-start text-sm ml-auto">
+		{#each NAV_ITEMS as item, index}
+			<a
+				href={`#${item.toLowerCase().replaceAll(' ', '-')}`}
+				class:lg:ml-20={index > 0}
+				class:md:ml-14={index > 0}
+				class:ml-10={index > 0}
+				class="group tracking-widest font-medium whitespace-nowrap flex flex-col">
+				<p class="pb-2">{item}</p>
+				<div class="w-0 group-hover:w-2/3 h-px bg-apex-moon ease-out duration-300" />
+			</a>
+		{/each}
+	</nav>
+	<div class="relative ml-auto flex md:hidden">
+		<div class="relative py-3 sm:max-w-xl">
+			<button class="text-stop-white w-10 h-10 relative focus:outline-none" on:click={() => isOpen = !isOpen}>
+				<span class="sr-only">Open main menu</span>
+				<div class="block w-6 absolute left-1/2 top-1/2 transform  -translate-x-1/2 -translate-y-1/2">
+					<span aria-hidden="true" class="block absolute h-0.5 w-6 bg-current transform transition duration-500 ease-in-out" class:rotate-45={isOpen} class:-translate-y-[0.375rem]={!isOpen}></span>
+					<span aria-hidden="true" class="block absolute h-0.5 w-6 bg-current transform transition duration-500 ease-in-out" class:opacity-0={isOpen}></span>
+					<span aria-hidden="true" class="block absolute h-0.5 w-6 bg-current transform  transition duration-500 ease-in-out" class:-rotate-45={isOpen} class:translate-y-[0.375rem]={!isOpen}></span>
+				</div>
+			</button>
+		</div>
+		{#if isOpen}
+			<div transition:fly="{{ y: -25, duration: 700 }}" class="absolute right-[-2px] top-16 z-10">
+				<div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+					{#each NAV_ITEMS as item}
+						<a
+							href={`#${item.toLowerCase().replaceAll(' ', '-')}`}
+							class="group tracking-widest font-medium whitespace-nowrap flex flex-col">
+							<p class="pb-2 text-end">{item}</p>
+							<div class="w-0 group-hover:w-2/3 h-px bg-apex-moon ease-out duration-300" />
+						</a>
+					{/each}
+				</div>
+			</div>
+		{/if}
+	</div>
+</header>
+<section id="home" class="flex flex-col px-10 sm:px-14 md:px-16 lg:px-20 md:flex-row mx-auto pb-52 sm:pb-60 relative">
+	<div class="flex flex-col lg:mr-16 w-full">
+		<h1 class="mt-32 text-[60px] sm:text-[80px] font-bold tracking-[0.3em] leading-[1.3]">
 			APEX
 			<br />
 			DESIGN.
 		</h1>
 		<div class="my-14 w-1/2 h-[1.5px] bg-apex-moon bg-opacity-10" />
-		<p class="text-xl leading-relaxed text-apex-moon text-opacity-80 tracking-wide">
+		<p class="text-lg sm:text-xl md:text-lg lg:text-xl leading-relaxed text-apex-moon text-opacity-80 tracking-wide">
 			We'll take your startup ideas. Your fresh creative endeavors. Your new innovation. And we'll
 			help you build everything.
 			<br />
@@ -148,33 +193,22 @@
 			Beautifully.
 		</p>
 	</div>
-	<div class="flex flex-col relative ml-16">
-		<nav class="flex flex-row items-center text-sm">
-			{#each NAV_ITEMS as item, index}
-				<a
-					href={`#${item.toLowerCase().replaceAll(' ', '-')}`}
-					class:ml-20={index > 0}
-					class="group tracking-widest font-medium whitespace-nowrap flex flex-col">
-					<p class="pb-2">{item}</p>
-					<div class="w-0 group-hover:w-2/3 h-px bg-apex-moon ease-out duration-300" />
-				</a>
-			{/each}
-		</nav>
+	<div class="relative md:ml-6 lg:ml-12 w-full">
 		<img
 			src="./images/tablet.webp"
 			alt="Design"
-			class="h-[56rem] object-cover absolute top-28 w-full" />
+			class="h-[18rem] md:h-[42rem] lg:h-[56rem] object-cover w-full absolute top-20 md:top-20" />
 	</div>
 </section>
-<div class="bg-apex-moon text-apex-midnight">
-	<section id="how-we-work" class="pt-44 flex flex-row w-[80rem] mx-auto">
-		<div class="flex flex-col w-full relative">
-			<h2 class="font-bold text-5xl tracking-[0.1em] leading-[1.3]">
+<div class="bg-apex-moon text-apex-midnight px-10 sm:px-14 md:px-16 lg:px-20">
+	<section id="how-we-work" class="pt-44 flex flex-col md:flex-row mx-auto">
+		<div class="flex flex-col w-full">
+			<h2 class="font-bold text-[44px] xl:text-5xl tracking-[0.1em] leading-[1.3]">
 				BUILD EVERYTHING.
 				<br />
 				BEAUTIFUL.
 			</h2>
-			<p class="text-xl mt-12 leading-relaxed tracking-wide">
+			<p class="text-lg lg:text-xl mt-12 leading-relaxed tracking-wide">
 				Wherever you are in your process, Apex can help. Our team has years of experience helping
 				startups develop ideas and bring them to reality.
 				<br />
@@ -183,22 +217,20 @@
 				way through. And once that's ready, our team of designers and developers can build it from start
 				to finish.
 			</p>
-			<img
+			<div class="relative">
+				<img
 				src="./images/product.webp"
 				alt="Design"
-				class="h-[40rem] object-cover absolute top-[28rem] w-full" />
+				class="h-[16rem] md:h-[34rem] md/lg:h-[40rem] object-cover absolute top-[60rem] min-[510px]:top-[55rem] md:top-[4rem] w-full" />
+			</div>
+			
 		</div>
 		<Roadmap />
 	</section>
 </div>
-<section id="about-us" class="pt-64 flex flex-row w-[80rem] mx-auto relative h-[76rem]">
-	{#if showTeam}
-		<Team />
-	{:else}
-		<TechShowcase />
-	{/if}
-	<div class="ml-12 mt-20 flex flex-col w-full relative">
-		<h2 class="font-bold text-5xl tracking-[0.1em] leading-[1.3]">
+<section id="about-us" class="pt-64 flex flex-col md/lg:flex-row-reverse mx-auto min-h-[76rem] px-10 sm:px-14 md:px-16 lg:px-20">
+	<div class="sm:ml-12 xl:mt-20 flex flex-col w-full">
+		<h2 class="font-bold text-[44px] xl:text-5xl tracking-[0.1em] leading-[1.3]">
 			WITH A KILLER TEAM. AND SOME KILLER TOOLS.
 		</h2>
 		<p class="text-xl mt-12 leading-relaxed tracking-wide text-apex-moon text-opacity-80">
@@ -218,15 +250,20 @@
 			{/if}
 		</button>
 	</div>
+	{#if showTeam}
+		<Team />
+	{:else}
+		<TechShowcase />
+	{/if}
 </section>
 <div class="bg-apex-moon text-apex-midnight">
-	<section id="showcase" class="pt-40 flex flex-col items-center w-[80rem] mx-auto">
+	<section id="showcase" class="py-40 flex flex-col items-center mx-auto px-10 sm:px-14 md:px-24 lg:px-28 xl:px-36">
 		<h2 class="font-bold text-5xl tracking-[0.1em] leading-[1.3] text-center">
 			CHECK OUT SOME
 			<br />
 			OF OUR WORK.
 		</h2>
-		<p class="text-xl mt-12 leading-relaxed tracking-wide text-center w-1/2">
+		<p class="text-xl mt-12 leading-relaxed tracking-wide text-center w-4/5 md/lg:w-1/2">
 			We've been around the block. From small startups to large enterprises, we've helped build
 			products for all kinds of clients.
 		</p>
@@ -239,14 +276,14 @@
 					class="h-2 w-2 mx-2 rounded-full bg-apex-midnight" />
 			{/each}
 		</div>
-		<div class="relative h-[56rem] w-full">
+		<div class="relative w-full 2xl:w-[80%]">
 			{#each SHOWCASE as project, index}
 				<ProjectShowcase {project} {showcaseIndex} {prevShowcaseIndex} {index} />
 			{/each}
 		</div>
 	</section>
 </div>
-<section id="contact" class="pt-56 flex flex-row w-[60rem] mx-auto">
+<section id="contact" class="pt-56 flex flex-row lg:px-36 mx-auto">
 	<div class="flex flex-col w-full mb-32">
 		<h2 class="font-bold text-5xl tracking-[0.1em] leading-[1.3] text-center">
 			LET'S BUILD SOMETHING.
@@ -279,7 +316,7 @@
 						required
 						class="rounded-sm bg-apex-moon bg-opacity-5 hover:bg-opacity-10 focus:bg-opacity-10 p-3 w-full text-apex-moon placeholder:text-apex-moon placeholder:text-opacity-30 text-[14.5px] outline-none"
 						placeholder="First and last name..."
-						bind:value={firstName} />
+						bind:value={name} />
 				</div>
 				<div>
 					<p class="text-[13px] mb-2 font-medium">COMPANY</p>
@@ -290,7 +327,7 @@
 						type="text"
 						class="rounded-sm bg-apex-moon bg-opacity-5 hover:bg-opacity-10 focus:bg-opacity-10 p-3 w-full text-apex-moon placeholder:text-apex-moon placeholder:text-opacity-30 text-[14.5px] outline-none"
 						placeholder="Company or organization name..."
-						bind:value={lastName} />
+						bind:value={company} />
 				</div>
 			</div>
 			<div>
@@ -334,18 +371,20 @@
 		</form>
 	</div>
 </section>
+
+
 <footer
 	class="flex flex-row w-full border-t border-apex-moon border-opacity-5 items-center px-12 py-6">
 	<img src="./apex.svg" alt="Apex Design" class="w-4" />
 	<a href="/" class="ml-4 tracking-widest font-medium">APEX DESIGN.</a>
 	<div class="flex flex-row mx-auto text-[13px]">
-		<a href="#how-we-work" class="mx-4 text-apex-moon text-opacity-60 hover:text-opacity-100">
+		<a href="#how-we-work" class="hidden lg:block mx-4 text-apex-moon text-opacity-60 hover:text-opacity-100">
 			How We Work
 		</a>
-		<a href="#about-us" class="mx-4 text-apex-moon text-opacity-60 hover:text-opacity-100">
+		<a href="#about-us" class="hidden lg:block mx-4 text-apex-moon text-opacity-60 hover:text-opacity-100">
 			About Us
 		</a>
-		<a href="#showcase" class="mx-4 text-apex-moon text-opacity-60 hover:text-opacity-100">
+		<a href="#showcase" class="hidden lg:block mx-4 text-apex-moon text-opacity-60 hover:text-opacity-100">
 			Showcase
 		</a>
 	</div>

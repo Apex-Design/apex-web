@@ -25,11 +25,11 @@
 </script>
 
 {#if index === showcaseIndex}
-	<div class="flex flex-row mt-20 items-center absolute top-0 left-0">
+	<div class="flex flex-col md/lg:flex-row pt-20 items-center">
 		<div
 			in:fly={{ x: 50 * reverse(), delay: 150 }}
 			out:fly={{ x: -50 * reverse() }}
-			class="flex flex-col w-2/3 ml-32"
+			class="flex flex-col w-[95%] md/lg:w-2/3"
 		>
 			<h4 class="text-apex-midnight text-opacity-25 font-bold tracking-widest mb-3">PROJECT</h4>
 			<p class="text-2xl tracking-widest font-bold">
@@ -61,7 +61,7 @@
 				{project.stack}
 			</p>
 		</div>
-		<div class="ml-32 flex flex-col w-full relative">
+		<div class="mt-14 md/lg:mt-0 md/lg:ml-20 lg:ml-32 w-full relative">
 			<img
 				src={project.image}
 				alt={project.project}
@@ -75,11 +75,18 @@
 					out:fly={{ x: -200 * reverse(), duration: 450 }}
 					src={project.imageMobile}
 					alt={project.project}
-					class:h-96={project.mobileAspect !== 'aspect-[9/16]'}
+					class:2xl:h-96={project.mobileAspect !== 'aspect-[9/16]'}
+					class:lg:h-80={project.mobileAspect !== 'aspect-[9/16]'}
+					class:min-[930px]:h-64={project.mobileAspect !== 'aspect-[9/16]'}
+					class:md:h-96={project.mobileAspect !== 'aspect-[9/16]'}
+					class:h-80={project.mobileAspect !== 'aspect-[9/16]'}
 					class:bottom-12={project.mobileAspect !== 'aspect-[9/16]'}
-					class:w-64={project.mobileAspect === 'aspect-[9/16]'}
+					class:xl:w-64={project.mobileAspect === 'aspect-[9/16]'}
+					class:lg:w-52={project.mobileAspect === 'aspect-[9/16]'}
+					class:min-[930px]:max-lg:w-44={project.mobileAspect === 'aspect-[9/16]'}
+					class:w-56={project.mobileAspect === 'aspect-[9/16]'}
 					class:bottom-6={project.mobileAspect === 'aspect-[9/16]'}
-					class="{project.mobileAspect} object-cover object-left-top absolute -right-12 drop-shadow-lg rounded-lg"
+					class="{project.mobileAspect} object-cover object-left-top absolute -right-3 md/lg:-right-12 drop-shadow-lg rounded-lg"
 				/>
 			{/if}
 		</div>
