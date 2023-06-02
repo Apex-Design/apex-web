@@ -129,7 +129,7 @@
 			}
 		}, 10000);
 	}
-	startTimer();
+	// startTimer();
 
 	// Handle form submission
 	let name = '';

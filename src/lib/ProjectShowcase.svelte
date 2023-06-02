@@ -79,14 +79,18 @@
 					class:lg:h-80={project.mobileAspect !== 'aspect-[9/16]'}
 					class:min-[930px]:h-64={project.mobileAspect !== 'aspect-[9/16]'}
 					class:md:h-96={project.mobileAspect !== 'aspect-[9/16]'}
-					class:h-80={project.mobileAspect !== 'aspect-[9/16]'}
+					class:sm:h-80={project.mobileAspect !== 'aspect-[9/16]'}
+					class:h-60={project.mobileAspect !== 'aspect-[9/16]'}
+					class:sm:visible={project.mobileAspect !== 'aspect-[9/16]'}
+					class:hidden={project.mobileAspect !== 'aspect-[9/16]'}
 					class:bottom-12={project.mobileAspect !== 'aspect-[9/16]'}
 					class:xl:w-64={project.mobileAspect === 'aspect-[9/16]'}
 					class:lg:w-52={project.mobileAspect === 'aspect-[9/16]'}
 					class:min-[930px]:max-lg:w-44={project.mobileAspect === 'aspect-[9/16]'}
-					class:w-56={project.mobileAspect === 'aspect-[9/16]'}
+					class:sm:w-56={project.mobileAspect === 'aspect-[9/16]'}
+					class:w-36={project.mobileAspect === 'aspect-[9/16]'}
 					class:bottom-6={project.mobileAspect === 'aspect-[9/16]'}
-					class="{project.mobileAspect} object-cover object-left-top absolute -right-3 md/lg:-right-12 drop-shadow-lg rounded-lg"
+					class="{project.mobileAspect} object-cover object-left-top absolute bottom-0 -right-3 md/lg:-right-12 drop-shadow-lg rounded-lg"
 				/>
 			{/if}
 		</div>
