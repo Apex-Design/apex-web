@@ -106,8 +106,8 @@
 	};
 
 	// Handle form submission
-	let firstName = '';
-	let lastName = '';
+	let name = '';
+	let company = '';
 	let email = '';
 	let message = '';
 
@@ -118,8 +118,8 @@
 				'Content-Type': 'application/json'
 			},
 			body: JSON.stringify({
-				firstName,
-				lastName,
+				name,
+				company,
 				email,
 				message
 			})
@@ -177,15 +177,15 @@
 		{/if}
 	</div>
 </header>
-<section id="home" class="flex flex-col px-10 sm:px-14 md:px-16 lg:px-20 md:flex-row mx-auto min-h-[56rem] relative">
+<section id="home" class="flex flex-col px-10 sm:px-14 md:px-16 lg:px-20 md:flex-row mx-auto pb-52 sm:pb-60 relative">
 	<div class="flex flex-col lg:mr-16 w-full">
-		<h1 class="mt-32 text-[80px] font-bold tracking-[0.3em] leading-[1.3]">
+		<h1 class="mt-32 text-[60px] sm:text-[80px] font-bold tracking-[0.3em] leading-[1.3]">
 			APEX
 			<br />
 			DESIGN.
 		</h1>
 		<div class="my-14 w-1/2 h-[1.5px] bg-apex-moon bg-opacity-10" />
-		<p class="text-xl md:text-lg lg:text-xl leading-relaxed text-apex-moon text-opacity-80 tracking-wide">
+		<p class="text-lg sm:text-xl md:text-lg lg:text-xl leading-relaxed text-apex-moon text-opacity-80 tracking-wide">
 			We'll take your startup ideas. Your fresh creative endeavors. Your new innovation. And we'll
 			help you build everything.
 			<br />
@@ -193,16 +193,16 @@
 			Beautifully.
 		</p>
 	</div>
-	<div class="relative hidden md:block md:ml-6 lg:ml-12 w-full">
+	<div class="relative md:ml-6 lg:ml-12 w-full">
 		<img
 			src="./images/tablet.webp"
 			alt="Design"
-			class="md:h-[42rem] lg:h-[56rem] object-cover w-full absolute top-20" />
+			class="h-[18rem] md:h-[42rem] lg:h-[56rem] object-cover w-full absolute top-20 md:top-20" />
 	</div>
 </section>
 <div class="bg-apex-moon text-apex-midnight px-10 sm:px-14 md:px-16 lg:px-20">
 	<section id="how-we-work" class="pt-44 flex flex-col md:flex-row mx-auto">
-		<div class="flex flex-col w-full relative">
+		<div class="flex flex-col w-full">
 			<h2 class="font-bold text-[44px] xl:text-5xl tracking-[0.1em] leading-[1.3]">
 				BUILD EVERYTHING.
 				<br />
@@ -217,10 +217,13 @@
 				way through. And once that's ready, our team of designers and developers can build it from start
 				to finish.
 			</p>
-			<img
+			<div class="relative">
+				<img
 				src="./images/product.webp"
 				alt="Design"
-				class="hidden md:block h-[34rem] md/lg:h-[40rem] object-cover absolute top-[34rem] md/lg:top-[32rem] xl:top-[28rem] w-full" />
+				class="h-[16rem] md:h-[34rem] md/lg:h-[40rem] object-cover absolute top-[60rem] min-[510px]:top-[55rem] md:top-[4rem] w-full" />
+			</div>
+			
 		</div>
 		<Roadmap />
 	</section>
@@ -254,13 +257,13 @@
 	{/if}
 </section>
 <div class="bg-apex-moon text-apex-midnight">
-	<section id="showcase" class="pt-40 flex flex-col items-center mx-auto px-10 sm:px-14 md:px-24 lg:px-28 xl:px-36">
+	<section id="showcase" class="py-40 flex flex-col items-center mx-auto px-10 sm:px-14 md:px-24 lg:px-28 xl:px-36">
 		<h2 class="font-bold text-5xl tracking-[0.1em] leading-[1.3] text-center">
 			CHECK OUT SOME
 			<br />
 			OF OUR WORK.
 		</h2>
-		<p class="text-xl mt-12 leading-relaxed tracking-wide text-center w-1/2">
+		<p class="text-xl mt-12 leading-relaxed tracking-wide text-center w-4/5 md/lg:w-1/2">
 			We've been around the block. From small startups to large enterprises, we've helped build
 			products for all kinds of clients.
 		</p>
@@ -273,7 +276,7 @@
 					class="h-2 w-2 mx-2 rounded-full bg-apex-midnight" />
 			{/each}
 		</div>
-		<div class="relative min-h-[56rem] w-full lg:w-[80%] xl:w-[75%]">
+		<div class="relative w-full 2xl:w-[80%]">
 			{#each SHOWCASE as project, index}
 				<ProjectShowcase {project} {showcaseIndex} {prevShowcaseIndex} {index} />
 			{/each}
@@ -313,7 +316,7 @@
 						required
 						class="rounded-sm bg-apex-moon bg-opacity-5 hover:bg-opacity-10 focus:bg-opacity-10 p-3 w-full text-apex-moon placeholder:text-apex-moon placeholder:text-opacity-30 text-[14.5px] outline-none"
 						placeholder="First and last name..."
-						bind:value={firstName} />
+						bind:value={name} />
 				</div>
 				<div>
 					<p class="text-[13px] mb-2 font-medium">COMPANY</p>
@@ -324,7 +327,7 @@
 						type="text"
 						class="rounded-sm bg-apex-moon bg-opacity-5 hover:bg-opacity-10 focus:bg-opacity-10 p-3 w-full text-apex-moon placeholder:text-apex-moon placeholder:text-opacity-30 text-[14.5px] outline-none"
 						placeholder="Company or organization name..."
-						bind:value={lastName} />
+						bind:value={company} />
 				</div>
 			</div>
 			<div>
@@ -375,13 +378,13 @@
 	<img src="./apex.svg" alt="Apex Design" class="w-4" />
 	<a href="/" class="ml-4 tracking-widest font-medium">APEX DESIGN.</a>
 	<div class="flex flex-row mx-auto text-[13px]">
-		<a href="#how-we-work" class="mx-4 text-apex-moon text-opacity-60 hover:text-opacity-100">
+		<a href="#how-we-work" class="hidden lg:block mx-4 text-apex-moon text-opacity-60 hover:text-opacity-100">
 			How We Work
 		</a>
-		<a href="#about-us" class="mx-4 text-apex-moon text-opacity-60 hover:text-opacity-100">
+		<a href="#about-us" class="hidden lg:block mx-4 text-apex-moon text-opacity-60 hover:text-opacity-100">
 			About Us
 		</a>
-		<a href="#showcase" class="mx-4 text-apex-moon text-opacity-60 hover:text-opacity-100">
+		<a href="#showcase" class="hidden lg:block mx-4 text-apex-moon text-opacity-60 hover:text-opacity-100">
 			Showcase
 		</a>
 	</div>
