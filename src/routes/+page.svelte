@@ -414,5 +414,5 @@
 			Showcase
 		</a>
 	</div>
-	<p class="ml-16 text-xs text-apex-moon text-opacity-40">© Apex Design LLC</p>
+	<p class="ml-auto sm:ml-16 text-xs text-apex-moon text-opacity-40">© Apex Design LLC</p>
 </footer>
