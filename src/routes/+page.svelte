@@ -326,7 +326,7 @@
 				contact@apexdesign.io.
 			</a>
 		</p>
-		<form class="mt-16 space-y-6 w-[73%] mx-auto" on:submit|preventDefault={handleSubmit}>
+		<form class="mt-16 space-y-6 px-10 sm:px-0 w-full sm:w-[73%] mx-auto" on:submit|preventDefault={handleSubmit}>
 			<div class="grid grid-cols-2 gap-4">
 				<div>
 					<div class="flex flex-row">
