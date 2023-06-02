@@ -83,7 +83,7 @@
 					class:h-60={project.mobileAspect !== 'aspect-[9/16]'}
 					class:sm:block={project.mobileAspect !== 'aspect-[9/16]'}
 					class:hidden={project.mobileAspect !== 'aspect-[9/16]'}
-					class:bottom-12={project.mobileAspect !== 'aspect-[9/16]'}
+					class:sm:bottom-12={project.mobileAspect !== 'aspect-[9/16]'}
 					class:xl:w-64={project.mobileAspect === 'aspect-[9/16]'}
 					class:lg:w-52={project.mobileAspect === 'aspect-[9/16]'}
 					class:min-[930px]:max-lg:w-44={project.mobileAspect === 'aspect-[9/16]'}
