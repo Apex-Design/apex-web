@@ -316,7 +316,7 @@
 <div class="bg-apex-moon text-apex-midnight">
 	<section
 		id="showcase"
-		class="py-40 flex flex-col items-center mx-auto px-10 sm:px-14 md:px-24 lg:px-28 xl:px-36">
+		class="py-40 flex flex-col items-center mx-auto px-10 sm:px-14 md/lg:px-24 lg:px-28 xl:px-36">
 		<h2
 			class="font-bold text-[36px] md:text-[44px] xl:text-5xl tracking-[0.1em] leading-[1.3] text-center">
 			CHECK OUT SOME
@@ -337,7 +337,7 @@
 			{/each}
 		</div>
 		<div
-			class="relative w-full 2xl:w-[80%] h-[44rem]"
+			class="relative w-full 2xl:w-[80%] h-[48rem]"
 			on:swipe={handleSwipe}
 			use:swipe={{ timeframe: 300, minSwipeDistance: 60, touchAction: 'pan-y' }}>
 			{#each SHOWCASE as project, index}
