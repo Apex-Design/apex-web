@@ -29,7 +29,7 @@
 	const inView = Array(PROFILES.length).fill(false);
 </script>
 
-<div class="mt-16 md/lg:mt-0 lg:mx-32 flex flex-col w-full pb-48 md/lg:items-start sm:max-md/lg:ml-12">
+<div class="mt-24 md/lg:mt-0 lg:mx-32 flex flex-col w-full pb-48 md/lg:items-start">
 	{#each PROFILES as profile, index}
 		<a
 			use:viewport
@@ -39,16 +39,21 @@
 			target="_blank"
 			class:xl:ml-28={index === 0}
 			class:xl:-ml-32={index === 1}
+			class:sm:ml-auto={index !== 1}
 			class:xl:ml-48={index === 2}
 			class:xl:mt-6={index === 1}
-			class:mb-14={index < 2}
+			class:md:mb-14={index < 2}
+			class:mb-20={index < 2}
 			class:translate-x-10={!inView[index] && index !== 1}
 			class:-translate-x-10={!inView[index] && index === 1}
 			class:opacity-0={!inView[index]}
 			class:delay-300={inView[index]}
 			class="flex flex-row items-center group ease-out duration-300">
-			<img src={profile.image} alt={profile.name} class="aspect-square object-cover w-28 md:w-48" />
-			<div class="ml-4 md:ml-8 flex flex-col text-lg">
+			<img
+				src={profile.image}
+				alt={profile.name}
+				class="aspect-square sm:aspect-[4/3] md:aspect-square object-cover w-28 sm:w-56 md:w-48" />
+			<div class="ml-4 sm:ml-8 flex flex-col text-lg">
 				<h4 class="text-base font-medium tracking-widest mb-2">
 					{profile.name.toUpperCase()}
 				</h4>
