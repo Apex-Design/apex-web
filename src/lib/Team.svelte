@@ -49,7 +49,7 @@
 			class:translate-x-10={!inView[index] && index !== 1}
 			class:-translate-x-10={!inView[index] && index === 1}
 			class:opacity-0={!inView[index]}
-			class:delay-300={inView[index]}
+			class:md:delay-300={inView[index]}
 			class="flex flex-row items-center group ease-out duration-300">
 			<img
 				src={profile.image}

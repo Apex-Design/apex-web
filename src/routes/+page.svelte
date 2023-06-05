@@ -130,7 +130,7 @@
 			}
 		}, 10000);
 	}
-	// onMount(startTimer);
+	onMount(startTimer);
 
 	// Handle form submission
 	let name = '';
@@ -162,7 +162,7 @@
 	let isOpen = false;
 </script>
 
-<header class="flex flex-row px-10 sm:px-14 md:px-16 lg:px-20 mx-auto mt-8 md:mt-16">
+<header class="max-w-[1500px] flex flex-row px-10 sm:px-14 md:px-16 lg:px-20 mx-auto mt-8 md:mt-16">
 	<img src="./apex.svg" alt="Apex Design" class="w-10 sm:w-14 sm:mt-4 md:mt-2 z-10" />
 	<nav class="hidden md:flex flex-row items-start text-sm ml-auto">
 		{#each NAV_ITEMS as item, index}
@@ -224,7 +224,7 @@
 </header>
 <section
 	id="home"
-	class="flex flex-col px-10 sm:px-14 md:px-16 lg:px-20 md:flex-row mx-auto pb-72 md:pb-40 lg:pb-60 relative">
+	class="max-w-[1500px] flex flex-col px-10 sm:px-14 md:px-16 lg:px-20 md:flex-row mx-auto pb-72 md:pb-40 lg:pb-60 relative">
 	<div class="flex flex-col mr-8 lg:mr-16 w-full">
 		<h1
 			class="mt-32 text-[56px] sm:text-[80px] md:text-[52px] lg:text-[60px] xl:text-[80px] font-bold tracking-[0.3em] leading-[1.3]">
@@ -249,8 +249,11 @@
 			class="rounded-sm h-[22rem] sm:h-[20rem] md:h-[42rem] lg:h-[52rem] object-cover w-full absolute top-24 sm:top-28" />
 	</div>
 </section>
+
 <div class="bg-apex-moon text-apex-midnight px-10 sm:px-14 md:px-16 lg:px-20">
-	<section id="how-we-work" class="pt-[14rem] md:pt-44 flex flex-col md:flex-row mx-auto">
+	<section
+		id="how-we-work"
+		class="max-w-[1330px] pt-[14rem] md:pt-44 flex flex-col md:flex-row mx-auto">
 		<div class="flex flex-col w-full">
 			<h2 class="font-bold text-[40px] xl:text-5xl tracking-[0.1em] leading-[1.3em]">
 				BUILD EVERYTHING.
@@ -284,7 +287,7 @@
 </div>
 <section
 	id="about-us"
-	class="pt-72 sm:pt-64 flex flex-col md/lg:flex-row-reverse mx-auto min-h-[76rem] px-10 sm:px-14 md:px-16 lg:px-20">
+	class="max-w-[1500px] pt-72 sm:pt-64 flex flex-col md/lg:flex-row-reverse mx-auto min-h-[76rem] px-10 sm:px-14 md:px-16 lg:px-20">
 	<div class="sm:ml-12 xl:mt-20 flex flex-col w-full">
 		<h2
 			class="font-bold text-[36px] md:text-[44px] xl:text-5xl tracking-[0.1em] leading-[1.3] mr-12 md:mr-8 lg:mr-0">
@@ -317,7 +320,7 @@
 <div class="bg-apex-moon text-apex-midnight">
 	<section
 		id="showcase"
-		class="py-40 flex flex-col items-center mx-auto px-10 sm:px-14 md/lg:px-24 lg:px-28 xl:px-36">
+		class="max-w-[1500px] py-40 flex flex-col items-center mx-auto px-10 sm:px-14 md/lg:px-24 lg:px-28 xl:px-36">
 		<h2
 			class="font-bold text-[36px] md:text-[44px] xl:text-5xl tracking-[0.1em] leading-[1.3] text-center">
 			CHECK OUT SOME
@@ -338,7 +341,7 @@
 			{/each}
 		</div>
 		<div
-			class="relative w-full 2xl:w-[80%] h-[46rem] sm:h-[48rem]"
+			class="relative w-full h-[46rem] sm:h-[48rem]"
 			on:swipe={handleSwipe}
 			use:swipe={{ timeframe: 300, minSwipeDistance: 60, touchAction: 'pan-y' }}>
 			{#each SHOWCASE as project, index}
@@ -347,7 +350,7 @@
 		</div>
 	</section>
 </div>
-<section id="contact" class="pt-56 mb-16 md:mb-32 flex flex-row lg:px-36 mx-auto">
+<section id="contact" class="max-w-[1500px] pt-56 mb-16 md:mb-32 flex flex-row lg:px-36 mx-auto">
 	<div class="flex flex-col w-full">
 		<h2 class="font-bold text-[38px] sm:text-5xl tracking-[0.1em] leading-[1.3] text-center mx-12">
 			LET'S BUILD SOMETHING.

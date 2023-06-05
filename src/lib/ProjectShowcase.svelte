@@ -25,8 +25,7 @@
 </script>
 
 {#if index === showcaseIndex}
-	<div
-		class="flex flex-col lg:flex-row sm:mt-16 lg:max-2xl:mt-0 2xl:mt-24 items-center absolute center-me">
+	<div class="flex flex-col lg:flex-row sm:mt-16 lg:max-2xl:mt-0 items-center absolute center-me">
 		<div
 			in:fly={{ x: 50 * reverse(), delay: 150 }}
 			out:fly={{ x: -50 * reverse() }}
