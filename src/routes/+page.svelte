@@ -103,6 +103,7 @@
 	let prevShowcaseIndex = 0;
 
 	const setShowcaseIndex = (index: number) => {
+		timeSinceChange = Date.now();
 		prevShowcaseIndex = showcaseIndex;
 		showcaseIndex = index;
 	};
@@ -111,24 +112,33 @@
 		if (event.detail.direction === 'left') {
 			if (showcaseIndex < SHOWCASE.length - 1) {
 				setShowcaseIndex(showcaseIndex + 1);
+			} else {
+				setShowcaseIndex(0);
 			}
 		} else if (event.detail.direction === 'right') {
 			if (showcaseIndex > 0) {
 				setShowcaseIndex(showcaseIndex - 1);
+			} else {
+				setShowcaseIndex(SHOWCASE.length - 1);
 			}
 		}
 	}
 
 	// Timer to automatically cycle through projects
-	let timer: NodeJS.Timeout;
+	let timeSinceChange: number;
 	function startTimer() {
-		timer = setInterval(() => {
-			if (showcaseIndex < SHOWCASE.length - 1) {
-				setShowcaseIndex(showcaseIndex + 1);
-			} else {
-				setShowcaseIndex(0);
+		timeSinceChange = Date.now();
+		let delta = 8000 + timeSinceChange - Date.now();
+		setTimeout(() => {
+			if (Date.now() - timeSinceChange >= 8000) {
+				if (showcaseIndex < SHOWCASE.length - 1) {
+					setShowcaseIndex(showcaseIndex + 1);
+				} else {
+					setShowcaseIndex(0);
+				}
 			}
-		}, 10000);
+			startTimer();
+		}, delta);
 	}
 	onMount(startTimer);
 
@@ -161,6 +171,14 @@
 
 	let isOpen = false;
 </script>
+
+<!-- Preloads the images so that they don't blink in and out in mobile transitions -->
+<!-- <svelte:head>
+	{#each SHOWCASE as project}
+		<link rel="preload" as="image" href={project.image} />
+		<link rel="preload" as="image" href={project.imageMobile} />
+	{/each}
+</svelte:head> -->
 
 <header class="max-w-[1500px] flex flex-row px-10 sm:px-14 md:px-16 lg:px-20 mx-auto mt-8 md:mt-16">
 	<img src="./apex.svg" alt="Apex Design" class="w-10 sm:w-14 sm:mt-4 md:mt-2 z-10" />
@@ -262,7 +280,7 @@
 			</h2>
 			<p class="text-[17px] lg:text-xl mt-12 leading-relaxed tracking-wide">
 				Wherever you are in your process, Apex can help. Our team has years of experience helping
-				startups develop ideas and bring them to reality.
+				clients develop ideas and bring them to reality.
 				<br />
 				<br />
 				If your idea is fleshed out in your mind, then we can help put pen to paper and plan it all the
@@ -288,13 +306,13 @@
 <section
 	id="about-us"
 	class="max-w-[1500px] pt-72 sm:pt-64 flex flex-col md/lg:flex-row-reverse mx-auto min-h-[76rem] px-10 sm:px-14 md:px-16 lg:px-20">
-	<div class="sm:ml-12 xl:mt-20 flex flex-col w-full">
+	<div class="md:ml-16 md/lg:-mr-8 xl:mt-20 flex flex-col w-full">
 		<h2
-			class="font-bold text-[36px] md:text-[44px] xl:text-5xl tracking-[0.1em] leading-[1.3] mr-12 md:mr-8 lg:mr-0">
+			class="font-bold text-[36px] md:text-[44px] xl:text-5xl tracking-[0.1em] leading-[1.3] mr-8 lg:mr-0">
 			WITH A KILLER TEAM. AND SOME KILLER TOOLS.
 		</h2>
 		<p
-			class="text-lg sm:text-xl mt-12 leading-relaxed tracking-wide text-apex-moon text-opacity-80 mr-12 md:mr-8 lg:mr-0">
+			class="text-lg sm:text-xl mt-12 leading-relaxed tracking-wide text-apex-moon text-opacity-80 mr-8 lg:mr-0">
 			We're a pretty cool team, who can build pretty cool stuff, using pretty cool tech.
 			<br />
 			<br />
@@ -333,11 +351,12 @@
 		</p>
 		<div class="flex flex-row mt-20">
 			{#each SHOWCASE as _, index}
-				<button
-					on:click={() => setShowcaseIndex(index)}
-					class:bg-opacity-20={showcaseIndex !== index}
-					class:hover:bg-opacity-40={showcaseIndex !== index}
-					class="h-2 w-2 mx-2 rounded-full bg-apex-midnight" />
+				<button on:click={() => setShowcaseIndex(index)} class="px-2">
+					<div
+						class:bg-opacity-20={showcaseIndex !== index}
+						class:hover:bg-opacity-40={showcaseIndex !== index}
+						class="h-2 w-2 rounded-full bg-apex-midnight" />
+				</button>
 			{/each}
 		</div>
 		<div

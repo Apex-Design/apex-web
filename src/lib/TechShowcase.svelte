@@ -12,7 +12,7 @@
 		{ name: 'Go', path: 'go', size: 'w-[5rem] md/lg:-ml-3' },
 		{ name: 'Node.js', path: 'node', size: 'w-20 md/lg:-ml-1' },
 		{ name: 'Python', path: 'python', size: 'w-14 md/lg:ml-1' },
-		{ name: 'Django', path: 'django', size: 'w-20 md/lg:-ml-1 md/lg:-mb-2' },
+		{ name: 'Django', path: 'django', size: 'w-20 mt-2 md/lg:-ml-1 md/lg:-mb-2' },
 		{ name: 'TypeScript', path: 'typescript', size: 'w-14' },
 		{ name: 'PostgreSQL', path: 'postgresql', size: 'w-14' },
 		{ name: 'Electron', path: 'electron', size: 'w-14 md/lg:ml-2' },
