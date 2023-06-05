@@ -120,7 +120,7 @@
 			<h4 class="text-sm mt-12 text-apex-midnight text-opacity-25 font-bold tracking-widest mb-1">
 				BREAKDOWN
 			</h4>
-			<p class="text-xl font-semibold max-w-[32rem]">
+			<p class="text-lg font-semibold max-w-[32rem]">
 				{project.description}
 			</p>
 			<p class="text-[15px] mt-12 lg:mt-20 text-apex-midnight text-opacity-40">
