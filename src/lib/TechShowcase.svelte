@@ -22,7 +22,8 @@
 	const inView = Array(STACK.length).fill(false);
 </script>
 
-<div class="mt-16 md/lg:mx-16 lg:mx-32 grid grid-cols-3 gap-10 md/lg:gap-20 items-center justify-center w-full mb-48">
+<div
+	class="mt-32 lg:mt-16 md/lg:mx-16 lg:mx-32 grid grid-cols-3 gap-10 md/lg:gap-20 items-center justify-center w-full mb-48">
 	{#each STACK as tech, index}
 		<div
 			use:viewport

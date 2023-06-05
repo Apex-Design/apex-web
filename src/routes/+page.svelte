@@ -285,12 +285,13 @@
 <section
 	id="about-us"
 	class="pt-72 sm:pt-64 flex flex-col md/lg:flex-row-reverse mx-auto min-h-[76rem] px-10 sm:px-14 md:px-16 lg:px-20">
-	<div class="xl:mt-20 flex flex-col w-full">
-		<h2 class="font-bold text-[36px] md:text-[44px] xl:text-5xl tracking-[0.1em] leading-[1.3]">
+	<div class="sm:ml-12 xl:mt-20 flex flex-col w-full">
+		<h2
+			class="font-bold text-[36px] md:text-[44px] xl:text-5xl tracking-[0.1em] leading-[1.3] mr-12 md:mr-8 lg:mr-0">
 			WITH A KILLER TEAM. AND SOME KILLER TOOLS.
 		</h2>
 		<p
-			class="text-lg sm:text-xl mt-12 leading-relaxed tracking-wide text-apex-moon text-opacity-80">
+			class="text-lg sm:text-xl mt-12 leading-relaxed tracking-wide text-apex-moon text-opacity-80 mr-12 md:mr-8 lg:mr-0">
 			We're a pretty cool team, who can build pretty cool stuff, using pretty cool tech.
 			<br />
 			<br />
@@ -337,7 +338,7 @@
 			{/each}
 		</div>
 		<div
-			class="relative w-full 2xl:w-[80%] h-[48rem]"
+			class="relative w-full 2xl:w-[80%] h-[46rem] sm:h-[48rem]"
 			on:swipe={handleSwipe}
 			use:swipe={{ timeframe: 300, minSwipeDistance: 60, touchAction: 'pan-y' }}>
 			{#each SHOWCASE as project, index}

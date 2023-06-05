@@ -40,6 +40,8 @@
 			class:xl:ml-28={index === 0}
 			class:xl:-ml-32={index === 1}
 			class:sm:ml-auto={index !== 1}
+			class:sm:mr-12={index !== 1}
+			class:sm:ml-12={index === 1}
 			class:xl:ml-48={index === 2}
 			class:xl:mt-6={index === 1}
 			class:md:mb-14={index < 2}
