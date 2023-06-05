@@ -33,7 +33,8 @@
 				Math.floor(index / 3) * 100}ms;"
 			class:translate-y-10={!inView[index]}
 			class:opacity-0={!inView[index]}
-			class:delay-300={inView[index]}
+			class:delay-150={inView[index]}
+			class:md:delay-300={inView[index]}
 			class="{tech.size} aspect-square bg-apex-moon ease-out max-md/lg:mx-auto" />
 	{/each}
 </div>
