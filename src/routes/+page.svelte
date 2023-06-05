@@ -320,7 +320,7 @@
 <div class="bg-apex-moon text-apex-midnight">
 	<section
 		id="showcase"
-		class="max-w-[1500px] py-40 flex flex-col items-center mx-auto px-10 sm:px-14 md/lg:px-24 lg:px-28 xl:px-36">
+		class="max-w-[1500px] py-32 sm:py-40 flex flex-col items-center mx-auto px-10 sm:px-14 md/lg:px-24 lg:px-28 xl:px-36">
 		<h2
 			class="font-bold text-[36px] md:text-[44px] xl:text-5xl tracking-[0.1em] leading-[1.3] text-center">
 			CHECK OUT SOME
@@ -350,7 +350,9 @@
 		</div>
 	</section>
 </div>
-<section id="contact" class="max-w-[1500px] pt-56 mb-16 md:mb-32 flex flex-row lg:px-36 mx-auto">
+<section
+	id="contact"
+	class="max-w-[1500px] pt-36 lg:pt-56 mb-16 md:mb-32 flex flex-row lg:px-36 mx-auto">
 	<div class="flex flex-col w-full">
 		<h2 class="font-bold text-[38px] sm:text-5xl tracking-[0.1em] leading-[1.3] text-center mx-12">
 			LET'S BUILD SOMETHING.
