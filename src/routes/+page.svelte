@@ -113,12 +113,14 @@
 			if (showcaseIndex < SHOWCASE.length - 1) {
 				setShowcaseIndex(showcaseIndex + 1);
 			} else {
+				showcaseIndex = -1;
 				setShowcaseIndex(0);
 			}
 		} else if (event.detail.direction === 'right') {
 			if (showcaseIndex > 0) {
 				setShowcaseIndex(showcaseIndex - 1);
 			} else {
+				showcaseIndex = SHOWCASE.length;
 				setShowcaseIndex(SHOWCASE.length - 1);
 			}
 		}
@@ -128,7 +130,7 @@
 	let timeSinceChange: number;
 	function startTimer() {
 		timeSinceChange = Date.now();
-		let delta = 8000 + timeSinceChange - Date.now();
+		const delta = 8000 + timeSinceChange - Date.now();
 		setTimeout(() => {
 			if (Date.now() - timeSinceChange >= 8000) {
 				if (showcaseIndex < SHOWCASE.length - 1) {
