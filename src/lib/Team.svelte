@@ -55,7 +55,7 @@
 			<img
 				src={profile.image}
 				alt={profile.name}
-				class="aspect-square sm:aspect-[4/3] md:aspect-square object-cover w-28 sm:w-56 md:w-48" />
+				class="rounded-sm aspect-square sm:aspect-[4/3] md:aspect-square object-cover w-28 sm:w-56 md:w-48" />
 			<div class="ml-4 sm:ml-8 flex flex-col text-lg">
 				<h4 class="text-base font-medium tracking-widest mb-2">
 					{profile.name.toUpperCase()}

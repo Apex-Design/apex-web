@@ -285,7 +285,7 @@
 				<img
 					src="/images/product.webp"
 					alt="Design"
-					class="md:h-[40rem] lg:h-[42rem] object-cover absolute md:top-[6rem] w-full" />
+					class="rounded-sm md:h-[40rem] lg:h-[42rem] object-cover absolute md:top-[6rem] w-full" />
 			</div>
 		</div>
 		<Roadmap />
@@ -460,14 +460,20 @@
 	class="flex flex-row w-full border-t border-apex-moon border-opacity-5 items-center px-8 sm:px-12 py-6">
 	<img src="./apex.svg" alt="Apex Design" class="w-4" />
 	<a href="/" class="ml-4 tracking-widest font-medium">APEX DESIGN.</a>
-	<div class="hidden lg:flex flex-row mx-auto text-[13px]">
-		<a href="#how-we-work" class="mx-4 text-apex-moon text-opacity-60 hover:text-opacity-100">
+	<div class="flex flex-row mx-auto text-[13px]">
+		<a
+			href="#how-we-work"
+			class="hidden md:block mx-4 text-apex-moon text-opacity-60 hover:text-opacity-100">
 			How We Work
 		</a>
-		<a href="#about-us" class="mx-4 text-apex-moon text-opacity-60 hover:text-opacity-100">
+		<a
+			href="#about-us"
+			class="hidden md:block mx-4 text-apex-moon text-opacity-60 hover:text-opacity-100">
 			About Us
 		</a>
-		<a href="#showcase" class="mx-4 text-apex-moon text-opacity-60 hover:text-opacity-100">
+		<a
+			href="#showcase"
+			class="hidden md:block mx-4 text-apex-moon text-opacity-60 hover:text-opacity-100">
 			Showcase
 		</a>
 	</div>
