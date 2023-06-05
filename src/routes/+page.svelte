@@ -23,8 +23,8 @@
 			description:
 				'We designed an app to help users find and share video recipes based on the ingredients they have in their kitchen.',
 			stack: 'Flutter, Dart, Django, Adobe XD',
-			image: './showcase/cookmate-desktop-sample.jpeg',
-			imageMobile: './showcase/cookmate-mobile-sample.jpeg',
+			image: '/showcase/cookmate-desktop-sample.jpeg',
+			imageMobile: '/showcase/cookmate-mobile-sample.jpeg',
 			mobileAspect: 'aspect-[9/16]'
 		},
 		{
@@ -35,8 +35,8 @@
 			description:
 				"We built a web platform and API to help professors analyze student's performance on ZyLabs.",
 			stack: 'Django, AWS, PostgreSQL, Typescript, TailwindCSS',
-			image: './showcase/zybooks-desktop-sample.jpeg',
-			imageMobile: './showcase/zybooks-tablet-sample.jpeg',
+			image: '/showcase/zybooks-desktop-sample.jpeg',
+			imageMobile: '/showcase/zybooks-tablet-sample.jpeg',
 			mobileAspect: 'aspect-[5/4]'
 		},
 		{
@@ -47,7 +47,7 @@
 			description:
 				'We built a powerful AI driven application to help videographers turn their old footage into passive income.',
 			stack: 'Electron, SvelteKit, Pytorch, Golang, AWS, PostgreSQL',
-			image: './showcase/cinewave-desktop-sample.jpeg'
+			image: '/showcase/cinewave-desktop-sample.jpeg'
 		},
 		{
 			project: 'Emaglet',
@@ -57,8 +57,8 @@
 			description:
 				'We built a web platform that allows users to easily create, share, and monetize newsletters using Google Docs.',
 			stack: 'Flutter, Dart, Django, AWS, PostgreSQL',
-			image: './showcase/emaglet-desktop-sample.jpeg',
-			imageMobile: './showcase/emaglet-mobile-sample.jpeg',
+			image: '/showcase/emaglet-desktop-sample.jpeg',
+			imageMobile: '/showcase/emaglet-mobile-sample.jpeg',
 			mobileAspect: 'aspect-[9/16]'
 		},
 		{
@@ -69,8 +69,8 @@
 			description:
 				'We built a real-time productivity app to help users stay focused on their goals and tasks on all of their devices.',
 			stack: 'Flutter, Dart, Django, AWS, PostgreSQL',
-			image: './showcase/vision-desktop-sample.jpeg',
-			imageMobile: './showcase/vision-mobile-sample.jpeg',
+			image: '/showcase/vision-desktop-sample.jpeg',
+			imageMobile: '/showcase/vision-mobile-sample.jpeg',
 			mobileAspect: 'aspect-[9/16]'
 		},
 		{
@@ -81,8 +81,8 @@
 			description:
 				"We designed a sleek, modern, and sophisticated user experience for Wealthawk's web and mobile apps.",
 			stack: 'Adobe XD',
-			image: './showcase/wealthawk-desktop-sample.jpeg',
-			imageMobile: './showcase/wealthawk-mobile-sample.jpeg',
+			image: '/showcase/wealthawk-desktop-sample.jpeg',
+			imageMobile: '/showcase/wealthawk-mobile-sample.jpeg',
 			mobileAspect: 'aspect-[9/16]'
 		},
 		{
@@ -93,8 +93,8 @@
 			description:
 				'We helped Anacove maintain and build upon their existing codebase to help them scale their business.',
 			stack: 'Angular, Golang, MongoDB',
-			image: './showcase/anacove-desktop-sample.jpeg',
-			imageMobile: './showcase/anacove-tablet-sample.jpeg',
+			image: '/showcase/anacove-desktop-sample.jpeg',
+			imageMobile: '/showcase/anacove-tablet-sample.jpeg',
 			mobileAspect: 'aspect-[5/4]'
 		}
 	];
@@ -175,12 +175,12 @@
 </script>
 
 <!-- Preloads the images so that they don't blink in and out in mobile transitions -->
-<!-- <svelte:head>
+<svelte:head>
 	{#each SHOWCASE as project}
 		<link rel="preload" as="image" href={project.image} />
 		<link rel="preload" as="image" href={project.imageMobile} />
 	{/each}
-</svelte:head> -->
+</svelte:head>
 
 <header class="max-w-[1500px] flex flex-row px-10 sm:px-14 md:px-16 lg:px-20 mx-auto mt-8 md:mt-16">
 	<img src="./apex.svg" alt="Apex Design" class="w-10 sm:w-14 sm:mt-4 md:mt-2 z-10" />
@@ -264,7 +264,7 @@
 	</div>
 	<div class="relative md:ml-6 lg:ml-12 w-full">
 		<img
-			src="./images/tablet.webp"
+			src="/images/tablet.webp"
 			alt="Design"
 			class="rounded-sm h-[22rem] sm:h-[20rem] md:h-[42rem] lg:h-[52rem] object-cover w-full absolute top-24 sm:top-28" />
 	</div>
@@ -291,7 +291,7 @@
 			</p>
 			<div class="hidden md:block relative">
 				<img
-					src="./images/product.webp"
+					src="/images/product.webp"
 					alt="Design"
 					class="md:h-[40rem] lg:h-[42rem] object-cover absolute md:top-[6rem] w-full" />
 			</div>
@@ -299,7 +299,7 @@
 		<Roadmap />
 		<div class="md:hidden relative">
 			<img
-				src="./images/product.webp"
+				src="/images/product.webp"
 				alt="Design"
 				class="-bottom-40 h-[20rem] object-cover absolute w-full rounded-sm" />
 		</div>
