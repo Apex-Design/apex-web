@@ -310,7 +310,7 @@
 	class="max-w-[1500px] pt-72 sm:pt-64 flex flex-col md/lg:flex-row-reverse mx-auto min-h-[76rem] px-10 sm:px-14 md:px-16 lg:px-20">
 	<div class="md:ml-16 md/lg:-mr-8 xl:mt-20 flex flex-col w-full">
 		<h2
-			class="font-bold text-[36px] md:text-[44px] xl:text-5xl tracking-[0.1em] leading-[1.3] mr-8 lg:mr-0">
+			class="font-bold text-[36px] md:text-[44px] xl:text-5xl tracking-[0.1em] leading-[1.3] sm:mr-8 lg:mr-0">
 			WITH A KILLER TEAM. AND SOME KILLER TOOLS.
 		</h2>
 		<p
@@ -465,23 +465,17 @@
 </section>
 
 <footer
-	class="flex flex-row w-full border-t border-apex-moon border-opacity-5 items-center px-12 py-6">
+	class="flex flex-row w-full border-t border-apex-moon border-opacity-5 items-center px-8 sm:px-12 py-6">
 	<img src="./apex.svg" alt="Apex Design" class="w-4" />
 	<a href="/" class="ml-4 tracking-widest font-medium">APEX DESIGN.</a>
-	<div class="flex flex-row mx-auto text-[13px]">
-		<a
-			href="#how-we-work"
-			class="hidden lg:block mx-4 text-apex-moon text-opacity-60 hover:text-opacity-100">
+	<div class="hidden lg:flex flex-row mx-auto text-[13px]">
+		<a href="#how-we-work" class="mx-4 text-apex-moon text-opacity-60 hover:text-opacity-100">
 			How We Work
 		</a>
-		<a
-			href="#about-us"
-			class="hidden lg:block mx-4 text-apex-moon text-opacity-60 hover:text-opacity-100">
+		<a href="#about-us" class="mx-4 text-apex-moon text-opacity-60 hover:text-opacity-100">
 			About Us
 		</a>
-		<a
-			href="#showcase"
-			class="hidden lg:block mx-4 text-apex-moon text-opacity-60 hover:text-opacity-100">
+		<a href="#showcase" class="mx-4 text-apex-moon text-opacity-60 hover:text-opacity-100">
 			Showcase
 		</a>
 	</div>
