@@ -345,10 +345,10 @@
 		</p>
 		<div class="flex flex-row mt-20">
 			{#each SHOWCASE as _, index}
-				<button on:click={() => setShowcaseIndex(index)} class="px-2">
+				<button on:click={() => setShowcaseIndex(index)} class="px-2 group">
 					<div
 						class:bg-opacity-20={showcaseIndex !== index}
-						class:hover:bg-opacity-40={showcaseIndex !== index}
+						class:group-hover:bg-opacity-40={showcaseIndex !== index}
 						class="h-2 w-2 rounded-full bg-apex-midnight" />
 				</button>
 			{/each}
