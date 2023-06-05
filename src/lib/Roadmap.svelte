@@ -32,7 +32,7 @@
 			on:exitViewport={() => (inView[index] = false)}
 			class:translate-x-20={!inView[index]}
 			class:opacity-0={!inView[index]}
-			class:md:delay-300={inView[index]}
+			class:delay-300={inView[index]}
 			class="ease-out duration-300">
 			<h3 class="font-bold text-2xl md:text-3xl tracking-[0.1em] leading-[1.3]">
 				<span class="text-apex-midnight text-opacity-25 font-semibold">{index + 1}.</span>

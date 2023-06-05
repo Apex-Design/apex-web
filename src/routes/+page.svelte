@@ -174,14 +174,6 @@
 	let isOpen = false;
 </script>
 
-<!-- Preloads the images so that they don't blink in and out in mobile transitions -->
-<svelte:head>
-	{#each SHOWCASE as project}
-		<link rel="preload" as="image" href={project.image} />
-		<link rel="preload" as="image" href={project.imageMobile} />
-	{/each}
-</svelte:head>
-
 <header class="max-w-[1500px] flex flex-row px-10 sm:px-14 md:px-16 lg:px-20 mx-auto mt-8 md:mt-16">
 	<img src="./apex.svg" alt="Apex Design" class="w-10 sm:w-14 sm:mt-4 md:mt-2 z-10" />
 	<nav class="hidden md:flex flex-row items-start text-sm ml-auto">
